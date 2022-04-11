@@ -56,7 +56,12 @@ class CategoryViewCell: UITableViewCell {
     public func configureCell(node: TreeViewNode) {
         
         if let category = node.nodeObject {
-            self.categoryLabel.text = String(repeating: "    ", count: (category.level >= 0 ? category.level : 0)) + "  \(category.title)"
+            
+            if let _ = node.nodeChildren {
+                self.categoryLabel.text = String(repeating: "    ", count: (category.level >= 0 ? category.level : 0)) + "\(!node.isExpanded! ? "+" : "-") \(category.title)"
+            } else {
+                self.categoryLabel.text = String(repeating: "    ", count: (category.level >= 0 ? category.level : 0)) + "\(!node.isExpanded! ? "+" : "-") \(category.title)"
+            }
         }
         
         if let children = node.nodeChildren {
