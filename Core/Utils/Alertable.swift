@@ -1,0 +1,60 @@
+//
+//  Alertable.swift
+//  Core
+//
+//  Created by Santo Michael Sihombing on 10/04/22.
+//
+
+import UIKit
+
+public protocol Alertable {}
+public extension Alertable where Self: UIViewController {
+    
+    func showAlert(title: String,
+                   message: String,
+                   actionTitle: String,
+                   completion: @escaping(() -> Void)) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: actionTitle,
+                                      style: UIAlertAction.Style.default,
+                                      handler: { _ in completion() }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlertWithAction(title: String,
+                             message: String,
+                             actionLeftTitle: String,
+                             actionRightTitle: String,
+                             onActionLeftClick: @escaping(() -> Void),
+                             onActionRightClick: @escaping(() -> Void)) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: actionLeftTitle,
+                                      style: .destructive,
+                                      handler: { _ in onActionLeftClick() }))
+        
+        alert.addAction(UIAlertAction(title: actionRightTitle,
+                                      style: .default,
+                                      handler: { _ in onActionRightClick() }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showErrorMessage(title: String = "Something went wrong",
+                          message: String,
+                          actionTitle: String = "Ok",
+                          completion: (() -> Void)? = nil) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: actionTitle,
+                                      style: UIAlertAction.Style.default,
+                                      handler: { _ in completion?() }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}
