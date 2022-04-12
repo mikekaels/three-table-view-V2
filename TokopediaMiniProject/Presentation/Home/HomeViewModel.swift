@@ -10,13 +10,13 @@ import RxSwift
 import RxCocoa
 
 protocol HomeViewModelInput {
-    func didSelectCategory(selection: Driver<IndexPath>, tableView: UITableView, delegate: HomeViewControllerDelegate) -> Driver<TreeViewNode>
+    func didSelectCategory(selection: Driver<IndexPath>, tableView: UITableView, delegate: HomeViewControllerDelegate) -> Driver<Item>
     func loadDisplayArray()
     func addChildrenArray(_ childrenArray: [TreeViewNode])
 }
 
 protocol HomeViewModelOutput {
-    var categories: Driver<[TreeViewNode]> { get }
+    var categories: Driver<[SectionModel]> { get }
 }
 
 protocol HomeViewModel: HomeViewModelInput, HomeViewModelOutput {}
@@ -24,19 +24,19 @@ protocol HomeViewModel: HomeViewModelInput, HomeViewModelOutput {}
 
 class HomeViewModelPresentation: HomeViewModel {
     
-    var categories: Driver<[TreeViewNode]> {
+    var categories: Driver<[SectionModel]> {
         return _categories.asDriver()
     }
     
     private let coordinator: HomeCoordinator
 
-    private var _categories = BehaviorRelay<[TreeViewNode]>(value: [])
+    private var _categories = BehaviorRelay<[SectionModel]>(value: [])
     
     private let disposeBag = DisposeBag()
     
-    private var displayArray = [TreeViewNode]()
+    private var displayArray = [Item]()
     private var indentation: Int = 0
-    private var nodes: [TreeViewNode] = []
+    private var nodes: [Item] = []
     private var data: [CategoryItem1] = []
     
     init(coordinator: HomeCoordinator) {
@@ -58,10 +58,11 @@ class HomeViewModelPresentation: HomeViewModel {
             }
         }
         
-        self._categories.accept(self.displayArray)
+        self._categories.accept([SectionModel(header: "Categories", items: self.displayArray)])
+        print(_categories)
     }
     
-    func addChildrenArray(_ childrenArray: [TreeViewNode]) {
+    func addChildrenArray(_ childrenArray: [Item]) {
         for node: TreeViewNode in childrenArray {
             self.displayArray.append(node)
             
@@ -74,17 +75,18 @@ class HomeViewModelPresentation: HomeViewModel {
         }
     }
     
-    func didSelectCategory(selection: Driver<IndexPath>, tableView: UITableView,  delegate: HomeViewControllerDelegate) -> Driver<TreeViewNode> {
+    func didSelectCategory(selection: Driver<IndexPath>, tableView: UITableView,  delegate: HomeViewControllerDelegate) -> Driver<Item> {
         return selection.withLatestFrom(categories) { indexPath, categories in
             if let cell = tableView.cellForRow(at: indexPath) as? CategoryViewCell {
                 cell.expand()
                 cell.setNeedsDisplay()
                 self.loadDisplayArray()
             }
-            
-            return categories[indexPath.item]
+
+            return categories[0].items[indexPath.row]
         }.do(onNext: {category in
-            
+
         })
     }
+    
 }

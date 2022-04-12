@@ -48,7 +48,7 @@ target 'CommonUI' do
   # Pods for CommonUI
   rx_swift
   rx_cocoa
-#  rx_dataSource
+  rx_dataSource
   target 'CommonUITests' do
     # Pods for testing
   end

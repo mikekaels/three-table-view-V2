@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxDataSources
 import CommonUI
 import Core
 
@@ -38,6 +39,19 @@ class HomeViewController: ViewController {
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationItem.title = ""
     }
+        
+    let dataSource = RxTableViewSectionedAnimatedDataSource<SectionModel>(
+        configureCell: { dataSource, tableView, indexPath, item in
+            let cell: CategoryViewCell = tableView.dequeueReusableCell(withIdentifier: CategoryViewCell.identifier, for: indexPath) as! CategoryViewCell
+        cell.configureCell(node: item)
+        return cell
+    })
+    
+//    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel>{ dataSource, tableView, indexPath, item in
+//        let cell: CategoryViewCell = tableView.dequeueReusableCell(withIdentifier: CategoryViewCell.identifier, for: indexPath) as! CategoryViewCell
+//        cell.configureCell(node: item)
+//        return cell
+//    }
     
     override func bindViewModel() {
         guard let homeView = self.homeView,
@@ -47,12 +61,10 @@ class HomeViewController: ViewController {
         
         viewModel.categories.drive(homeView.tableview
                                     .rx
-                                    .items(cellIdentifier: CategoryViewCell.identifier,
-                                           cellType: CategoryViewCell.self)) { row, element, cell in
-            
-            cell.configureCell(node: element)
-            
-        }.disposed(by: disposeBag)
+                                    .items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        
         
         viewModel.didSelectCategory(selection: homeView.tableview.rx.itemSelected.asDriver(),
                                     tableView: homeView.tableview,

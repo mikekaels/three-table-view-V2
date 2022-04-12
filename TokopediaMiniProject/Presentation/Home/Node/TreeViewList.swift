@@ -44,7 +44,8 @@ class TreeViewLists {
         var nodes: [TreeViewNode] = []
         
         for data in dataList where data.level == 0 {
-            let node: TreeViewNode = TreeViewNode()
+            print(data.id)
+            let node: TreeViewNode = TreeViewNode(index: data.id)
             node.nodeLevel = data.level
             node.nodeObject = data
             node.isExpanded = false
@@ -70,7 +71,7 @@ class TreeViewLists {
        
         
         for data in dataList where data.level == level && data.parentId == parentId {
-            let node: TreeViewNode = TreeViewNode()
+            let node: TreeViewNode = TreeViewNode(index: data.id)
             node.nodeLevel = data.level
             node.nodeObject = data
             node.isExpanded = false

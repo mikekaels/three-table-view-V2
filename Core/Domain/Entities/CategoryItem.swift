@@ -8,7 +8,7 @@
 import Foundation
 import NetworkInfrastructure
 
-public struct CategoryItem1 {
+public struct CategoryItem1: Equatable {
     public let id: String
     public let title: String
     public let level: Int
