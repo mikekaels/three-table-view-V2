@@ -42,7 +42,7 @@ class CategoryViewModelPresentation: CategoryViewModel {
     private var _categories = BehaviorRelay<[DataModel]>(value: [])
     private var displayArray = [Item]()
     private var nodes: [Item] = []
-    private var _textSearch = BehaviorRelay<String?>(value: "Hello")
+    private var _textSearch = BehaviorRelay<String?>(value: "")
     
     init(HomeUseCase: HomeViewUseCase,
          coordinator: CategoryCoordinator) {
@@ -104,7 +104,7 @@ class CategoryViewModelPresentation: CategoryViewModel {
                 return ""
             }
             print(text)
-            return ""
+            return text
         }.do(onNext: {category in
 
         })
