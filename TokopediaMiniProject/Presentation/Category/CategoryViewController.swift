@@ -31,7 +31,7 @@ class CategoryViewController: ViewController {
         super.viewDidLoad()
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationItem.title = "Categories"
-        
+        self.navigationItem.searchController = categoryView?.searchController
         viewModel?.loadCategories()
     }
     
@@ -63,6 +63,14 @@ class CategoryViewController: ViewController {
         
         viewModel.didSelectCategory(selection: categoryView.tableview.rx.itemSelected.asDriver(),
                                     tableView: categoryView.tableview)
+            .drive()
+            .disposed(by: disposeBag)
+        
+        viewModel.textSearch.asDriver()
+            .drive(categoryView.searchController.searchBar.searchTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.textSearchDidChange(selection: categoryView.searchController.searchBar.searchTextField.rx.text.asDriver())
             .drive()
             .disposed(by: disposeBag)
     }

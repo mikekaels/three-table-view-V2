@@ -18,6 +18,13 @@ class CategoryView: ScrollableView {
     
     var navigationController: UINavigationController?
     
+    lazy var searchController: UISearchController = UISearchController(searchResultsController: nil)
+        .configure { v in
+            v.obscuresBackgroundDuringPresentation = false
+            v.searchBar.placeholder = "Find item"
+            v.searchBar.searchTextField.textColor = UIColor.white
+        }
+    
     let tableview = UICustomTableView()
         .configure { v in
             v.rowHeight = 50
