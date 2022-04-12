@@ -61,22 +61,19 @@ class CategoryViewModelPresentation: CategoryViewModel {
             
             if let _ = tableView.cellForRow(at: indexPath) as? CategoryTableViewCell {
                 
-                var node = self.nodes[indexPath.row]
+                let node = self.nodes[indexPath.row]
                 if node.isLeaf {
                     return self.nodes[indexPath.row]
                 }
                 node.isOpen = !node.isOpen
-                print("IS OPEN: ",node.isOpen)
+
                 let subNodes = node.needsDisplayNodes
 //                print("NODES: ", subNodes)
                 
                 let insertIndex = self.nodes.firstIndex(of: node)! + 1
                 
                 if node.isOpen {
-                    print("ROWS BEFORE: ",self.nodes.count)
-                    
                     self.nodes.insert(contentsOf: subNodes, at: insertIndex)
-                    print("ROWS AFTER: ",self.nodes.count)
                     
                 } else {
                     for subNode in subNodes {
@@ -88,8 +85,9 @@ class CategoryViewModelPresentation: CategoryViewModel {
                     }
                 }
             }
-
+            
             self._categories.accept([DataModel(header: "Categories", items: self.nodes)])
+
             return categories[0].items[indexPath.row]
         }.do(onNext: { category in
 //            print(category)
