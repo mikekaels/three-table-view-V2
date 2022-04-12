@@ -10,7 +10,7 @@ import RxSwift
 import NetworkInfrastructure
 
 public protocol HomeViewUseCase {
-    func getCategories() -> Observable<[CategoryItem]>
+    func getCategories() -> Observable<[TreeNode]>
 }
 
 public class HomeViewDomainUseCase {
@@ -22,11 +22,8 @@ public class HomeViewDomainUseCase {
 }
 
 extension HomeViewDomainUseCase: HomeViewUseCase {
-    public func getCategories() -> Observable<[CategoryItem]> {
+    public func getCategories() -> Observable<[TreeNode]> {
+        let data = repository.fetchCategories()
         return repository.fetchCategories().map { $0.toDomain() }
     }
-    
-//    public func getAllTopics(token: String) -> Observable<[Topic]> {
-//        return repository.fetchAllTopics(token: token).map { $0.toDomain() }
-//    }
 }

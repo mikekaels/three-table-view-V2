@@ -11,46 +11,30 @@ import RxSwift
 
 public class NetworkAPI {
     public static let instance = NetworkAPI()
-
+    
     private let fetcher: FetchCapable
-
+    
     public init(fetcher: FetchCapable = NetworkService()) {
         self.fetcher = fetcher
     }
-
+    
     public func fetch<Request: APIRequest>(_ request: Request) -> Observable<Request.Response> {
-
+        
         let components = URLComponents(string: request.url)!
-
+        
         var urlRequest = URLRequest(url: components.url!)
         urlRequest.method = request.method
-//        if !request.bodyParameters.isEmpty {
-//            urlRequest.httpBody = encodeBody(bodyParamaters: request.bodyParameters,
-//                                             bodyEncoding: request.bodyEncoding)
-//        }
         urlRequest.timeoutInterval = 15
         return self.fetcher.fetch(request: urlRequest,
                                   decodeTo: Request.Response.self)
     }
 
-//    private func encodeBody(bodyParamaters: [String: Any],
-//                            bodyEncoding: BodyEncoding) -> Data? {
-//        switch bodyEncoding {
-//            case .jsonSerializationData:
-//                return try? JSONSerialization.data(withJSONObject: bodyParamaters)
-//            case .stringEncodingAscii:
-//                return bodyParamaters.queryString.data(using: .ascii, allowLossyConversion: true)
-//        }
-//    }
-    
-    public func fetchFile<Request: APIRequest>(_ request: Request) -> Observable<Request.Response> {
-        let url = Bundle.main.url(forResource: request.url, withExtension: "json")
-        var urlRequest = URLRequest(url: url!)
-        urlRequest.method = request.method
+    public func fetchFile<Request: FileRequest>(_ request: Request) -> Observable<Request.Response> {
+        let path = Bundle.main.path(forResource: request.filePath, ofType: "json")
         
-        urlRequest.timeoutInterval = 15
-        return self.fetcher.fetch(request: urlRequest,
-                                  decodeTo: Request.Response.self)
+        let urlRequest = URL(fileURLWithPath: path!)
+        
+        return self.fetcher.fileFetch(request: urlRequest, decodeTo: Request.Response.self)
     }
 }
 

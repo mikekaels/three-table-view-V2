@@ -7,9 +7,9 @@
 
 import Foundation
 
-public struct CategoryRequests: APIRequest {
+public struct CategoryRequests: FileRequest {
     public typealias Response = CategoryResponse
-    public var pathName: String { "data" }
+    public var filePath: String { "data" }
     
     public init() {}
 }

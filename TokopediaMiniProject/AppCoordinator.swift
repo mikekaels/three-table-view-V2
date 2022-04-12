@@ -27,7 +27,7 @@ class AppCoordinator: Coordinator {
     func start() {
         var coordinator: Coordinator?
         
-        coordinator = HomeCoordinatorImplement(navigationController: navigationController)
+        coordinator = CategoryCoordinatorImplement(navigationController: navigationController)
         
         coordinator?.start()
         window.rootViewController = self.navigationController

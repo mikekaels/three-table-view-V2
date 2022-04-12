@@ -67,6 +67,17 @@
 		BDAD2A2328031D5700562118 /* NSObject + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2A2228031D5700562118 /* NSObject + Extension.swift */; };
 		BDAD2A282803221900562118 /* TreeViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2A272803221900562118 /* TreeViewNode.swift */; };
 		BDAD2A2A2803258800562118 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2A292803258800562118 /* CategoryItem.swift */; };
+		BDB5EF3B2805AAA6007B724E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF3A2805AAA6007B724E /* CategoryViewController.swift */; };
+		BDB5EF3D2805AACE007B724E /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF3C2805AACE007B724E /* CategoryCoordinator.swift */; };
+		BDB5EF3F2805AAD6007B724E /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF3E2805AAD6007B724E /* CategoryView.swift */; };
+		BDB5EF412805AAE3007B724E /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF402805AAE3007B724E /* CategoryViewModel.swift */; };
+		BDB5EF432805D1BC007B724E /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF422805D1BC007B724E /* TreeNode.swift */; };
+		BDB5EF472805E2D4007B724E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF462805E2D4007B724E /* DataModel.swift */; };
+		BDB5EF4A2805E9C2007B724E /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF492805E9C2007B724E /* CategoryTableViewCell.swift */; };
+		BDB5EF4C2805FA83007B724E /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF4B2805FA83007B724E /* BindableType.swift */; };
+		BDB5EF502805FAFA007B724E /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF4F2805FAFA007B724E /* CategoryCellViewModel.swift */; };
+		BDB5EF532805FBC6007B724E /* DisposableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF522805FBC6007B724E /* DisposableViewModel.swift */; };
+		BDB5EF552805FC36007B724E /* DisposableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF542805FC36007B724E /* DisposableTableViewCell.swift */; };
 		F0B5470AEDB0079CE5379AF2 /* Pods_NetworkInfrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AB7855ABC3D7C2D31C9250 /* Pods_NetworkInfrastructure.framework */; };
 /* End PBXBuildFile section */
 
@@ -266,6 +277,17 @@
 		BDAD2A2228031D5700562118 /* NSObject + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject + Extension.swift"; sourceTree = "<group>"; };
 		BDAD2A272803221900562118 /* TreeViewNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeViewNode.swift; sourceTree = "<group>"; };
 		BDAD2A292803258800562118 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		BDB5EF3A2805AAA6007B724E /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		BDB5EF3C2805AACE007B724E /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
+		BDB5EF3E2805AAD6007B724E /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		BDB5EF402805AAE3007B724E /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		BDB5EF422805D1BC007B724E /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
+		BDB5EF462805E2D4007B724E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		BDB5EF492805E9C2007B724E /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		BDB5EF4B2805FA83007B724E /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
+		BDB5EF4F2805FAFA007B724E /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
+		BDB5EF522805FBC6007B724E /* DisposableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableViewModel.swift; sourceTree = "<group>"; };
+		BDB5EF542805FC36007B724E /* DisposableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableTableViewCell.swift; sourceTree = "<group>"; };
 		C219C311F2C0009C3B3A1382 /* Pods-CommonUI-CommonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonUI-CommonUITests.release.xcconfig"; path = "Target Support Files/Pods-CommonUI-CommonUITests/Pods-CommonUI-CommonUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C97A395230AF406406792543 /* Pods-TokopediaMiniProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokopediaMiniProject.debug.xcconfig"; path = "Target Support Files/Pods-TokopediaMiniProject/Pods-TokopediaMiniProject.debug.xcconfig"; sourceTree = "<group>"; };
 		D45934634D02249CE65352D4 /* Pods-TokopediaMiniProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokopediaMiniProject.release.xcconfig"; path = "Target Support Files/Pods-TokopediaMiniProject/Pods-TokopediaMiniProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -480,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				BDAD2A2128031D4700562118 /* Utils */,
+				BDB5EF392805AA62007B724E /* Category */,
 				BDAD2978280208EB00562118 /* Home */,
 			);
 			path = Presentation;
@@ -595,6 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				BDAD2A292803258800562118 /* CategoryItem.swift */,
+				BDB5EF422805D1BC007B724E /* TreeNode.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -642,7 +666,9 @@
 		BDAD2A2128031D4700562118 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BDB5EF512805FBB0007B724E /* Disposable */,
 				BDAD2A2228031D5700562118 /* NSObject + Extension.swift */,
+				BDB5EF4B2805FA83007B724E /* BindableType.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -654,6 +680,37 @@
 				BD470E5F2803347700A40985 /* TreeViewList.swift */,
 			);
 			path = Node;
+			sourceTree = "<group>";
+		};
+		BDB5EF392805AA62007B724E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5EF482805E982007B724E /* Cell */,
+				BDB5EF3A2805AAA6007B724E /* CategoryViewController.swift */,
+				BDB5EF3C2805AACE007B724E /* CategoryCoordinator.swift */,
+				BDB5EF3E2805AAD6007B724E /* CategoryView.swift */,
+				BDB5EF402805AAE3007B724E /* CategoryViewModel.swift */,
+				BDB5EF462805E2D4007B724E /* DataModel.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		BDB5EF482805E982007B724E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5EF492805E9C2007B724E /* CategoryTableViewCell.swift */,
+				BDB5EF4F2805FAFA007B724E /* CategoryCellViewModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BDB5EF512805FBB0007B724E /* Disposable */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5EF522805FBC6007B724E /* DisposableViewModel.swift */,
+				BDB5EF542805FC36007B724E /* DisposableTableViewCell.swift */,
+			);
+			path = Disposable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1253,15 +1310,25 @@
 			files = (
 				BDAD29762802084500562118 /* AppCoordinator.swift in Sources */,
 				BDAD297E2802095D00562118 /* HomeView.swift in Sources */,
+				BDB5EF532805FBC6007B724E /* DisposableViewModel.swift in Sources */,
 				BDAD2A202803183400562118 /* CategoryViewCell.swift in Sources */,
 				BDAD2980280209A600562118 /* HomeViewModel.swift in Sources */,
+				BDB5EF3B2805AAA6007B724E /* CategoryViewController.swift in Sources */,
+				BDB5EF472805E2D4007B724E /* DataModel.swift in Sources */,
 				BDAD297A2802091500562118 /* HomeCoordinator.swift in Sources */,
 				813BAED22554E3220083B711 /* AppDelegate.swift in Sources */,
+				BDB5EF412805AAE3007B724E /* CategoryViewModel.swift in Sources */,
 				BD470E602803347700A40985 /* TreeViewList.swift in Sources */,
+				BDB5EF4C2805FA83007B724E /* BindableType.swift in Sources */,
+				BDB5EF3F2805AAD6007B724E /* CategoryView.swift in Sources */,
+				BDB5EF552805FC36007B724E /* DisposableTableViewCell.swift in Sources */,
 				BDAD2A282803221900562118 /* TreeViewNode.swift in Sources */,
 				813BAED42554E3220083B711 /* SceneDelegate.swift in Sources */,
+				BDB5EF502805FAFA007B724E /* CategoryCellViewModel.swift in Sources */,
 				BDAD297C2802094200562118 /* HomeViewController.swift in Sources */,
+				BDB5EF3D2805AACE007B724E /* CategoryCoordinator.swift in Sources */,
 				BDAD2A2328031D5700562118 /* NSObject + Extension.swift in Sources */,
+				BDB5EF4A2805E9C2007B724E /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1320,6 +1387,7 @@
 			files = (
 				BDAD29F02802105C00562118 /* Alertable.swift in Sources */,
 				BDAD29EC2802102700562118 /* UIColor + Extension.swift in Sources */,
+				BDB5EF432805D1BC007B724E /* TreeNode.swift in Sources */,
 				BDAD29FE2802167A00562118 /* Configurable.swift in Sources */,
 				BDAD2A2A2803258800562118 /* CategoryItem.swift in Sources */,
 				BD470E6A28037B7900A40985 /* CategoryRepository.swift in Sources */,

@@ -62,6 +62,7 @@ target 'Core' do
   # Pods for Core
   rx_swift
   rx_cocoa
+  rx_dataSource
   target 'CoreTests' do
     # Pods for testing
   end

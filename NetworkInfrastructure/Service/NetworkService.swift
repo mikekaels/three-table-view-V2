@@ -11,6 +11,7 @@ import RxSwift
 
 public class NetworkService: FetchCapable {
     
+
     private let session: Session
     
     public init(session: Session = AF) {
@@ -52,10 +53,46 @@ public class NetworkService: FetchCapable {
             }
         }
     }
+    
+    public func fileFetch<ResponseType>(request: URL, decodeTo: ResponseType.Type) -> Observable<ResponseType> where ResponseType : Decodable {
+        let afRequest = session.request(request).debugLog().validate()
+        
+        return Observable<ResponseType>.create { observer in
+            
+            afRequest.responseDecodable(of: decodeTo.self) { response in
+                
+                switch response.result {
+                    case .success(let value):
+                        observer.onNext(value)
+                        observer.onCompleted()
+                    case .failure(let error):
+                        switch response.response?.statusCode {
+                            case 400:
+                                observer.onError(NetworkError.badRequest)
+                            case 402:
+                                observer.onError(NetworkError.requestFailed)
+                            case 403:
+                                observer.onError(NetworkError.forbidden)
+                            case 404:
+                                observer.onError(NetworkError.notFound)
+                            case 500, 502, 503, 504:
+                                observer.onError(NetworkError.internalServerError)
+                            default:
+                                observer.onError(error)
+                        }
+                }
+            }
+            
+            return Disposables.create {
+                afRequest.cancel()
+            }
+        }
+    }
 }
 
 public protocol FetchCapable {
     func fetch<ResponseType: Decodable>(request: URLRequest, decodeTo: ResponseType.Type) -> Observable<ResponseType>
+    func fileFetch<ResponseType>(request: URL, decodeTo: ResponseType.Type) -> Observable<ResponseType> where ResponseType : Decodable 
 }
 
 extension Request {

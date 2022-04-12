@@ -33,19 +33,19 @@ extension TreeViewNode: IdentifiableType, Equatable {
 
 struct SectionModel {
     var header: String
-    var items: [Item]
+    var items: [Items]
 }
 
-typealias Item = TreeViewNode
+typealias Items = TreeViewNode
 
 extension SectionModel: AnimatableSectionModelType {
-    public typealias Item = TreeViewNode
+    public typealias Items = TreeViewNode
     
     var identity: String {
         return header
     }
     
-    init(original: SectionModel, items: [Item]) {
+    init(original: SectionModel, items: [Items]) {
         self = original
         self.items = items
     }

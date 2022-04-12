@@ -22,5 +22,4 @@ extension CategoryDataRepository: CategoryRepository {
         let request: CategoryRequests = CategoryRequests()
         return networkAPI.fetchFile(request)
     }
-    
 }

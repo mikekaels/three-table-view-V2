@@ -8,7 +8,7 @@
 import Foundation
 import NetworkInfrastructure
 
-public struct CategoryItem1: Equatable {
+public class CategoryItem1 {
     public let id: String
     public let title: String
     public let level: Int
@@ -27,27 +27,54 @@ public struct CategoryItem1: Equatable {
     
 }
 
-public struct CategoryItem {
-    public let id: String
-    public let title: String
-    public let level: Int?
-    public let parentId: String?
+public class CategoryItem {
+    public let id: String?
+    public let name: String?
+    public let iconImageUrl: String?
+    public let child: [CategoryItem]?
     
     public init(id: String,
-                title: String,
-                parentId: String? = "0",
-                level: Int? = 0
-    ){
+                name: String,
+                iconImageUrl: String,
+                child: [CategoryItem]?) {
         self.id = id
-        self.title = title
-        self.parentId = parentId
-        self.level = level
+        self.name = name
+        self.iconImageUrl = iconImageUrl
+        self.child = child
     }
-    
 }
 
-extension CategoryResponse {
-    func toDomain() -> [CategoryItem]  {
-        return []
+extension CategoryRequests.Response {
+    func toDomain() -> [TreeNode]  {
+//        print("CATEGORY RESPONSE: ", self.data.categoryAllList.categories[0])
+        let categories = self.data.categoryAllList.categories
+        var trees = [TreeNode]()
+        
+        for i in 0..<categories.count{
+            let tree = modelWithDictionary(categories[i], levelString: i, parent: nil)
+            trees.append(tree)
+        }
+        
+        return trees
+    }
+    
+    func modelWithDictionary(_ dict: CategoryData, levelString index: Int, parent levelString: String?) -> TreeNode{
+        var model = TreeNode()
+        model.levelString = levelString != nil ? (levelString! + ".\(index + 1)") : "\(index + 1)"
+        if let child = dict.child {
+            
+            var trees = [TreeNode]()
+            for i in 0..<child.count{
+                let tree = modelWithDictionary(child[i], levelString: i, parent: model.levelString)
+                trees.append(tree)
+            }
+            model.subNodes = trees
+        }
+        model.name = dict.name
+        model.index = String(index)
+        return model
+    }
+    
+    func setValue(_ dict: CategoryData) {
     }
 }

@@ -10,7 +10,8 @@ import RxSwift
 import RxCocoa
 
 protocol HomeViewModelInput {
-    func didSelectCategory(selection: Driver<IndexPath>, tableView: UITableView, delegate: HomeViewControllerDelegate) -> Driver<Item>
+    func didSelectCategory(selection: Driver<IndexPath>, tableView: UITableView, delegate: HomeViewControllerDelegate) -> Driver<Items>
+    func getCategories() -> [CategoryItem]
     func loadDisplayArray()
     func addChildrenArray(_ childrenArray: [TreeViewNode])
 }
@@ -34,9 +35,9 @@ class HomeViewModelPresentation: HomeViewModel {
     
     private let disposeBag = DisposeBag()
     
-    private var displayArray = [Item]()
+    private var displayArray = [Items]()
     private var indentation: Int = 0
-    private var nodes: [Item] = []
+    private var nodes: [Items] = []
     private var data: [CategoryItem1] = []
     
     init(coordinator: HomeCoordinator) {
@@ -59,10 +60,9 @@ class HomeViewModelPresentation: HomeViewModel {
         }
         
         self._categories.accept([SectionModel(header: "Categories", items: self.displayArray)])
-        print(_categories)
     }
     
-    func addChildrenArray(_ childrenArray: [Item]) {
+    func addChildrenArray(_ childrenArray: [Items]) {
         for node: TreeViewNode in childrenArray {
             self.displayArray.append(node)
             
@@ -75,7 +75,7 @@ class HomeViewModelPresentation: HomeViewModel {
         }
     }
     
-    func didSelectCategory(selection: Driver<IndexPath>, tableView: UITableView,  delegate: HomeViewControllerDelegate) -> Driver<Item> {
+    func didSelectCategory(selection: Driver<IndexPath>, tableView: UITableView,  delegate: HomeViewControllerDelegate) -> Driver<Items> {
         return selection.withLatestFrom(categories) { indexPath, categories in
             if let cell = tableView.cellForRow(at: indexPath) as? CategoryViewCell {
                 cell.expand()
@@ -87,6 +87,10 @@ class HomeViewModelPresentation: HomeViewModel {
         }.do(onNext: {category in
 
         })
+    }
+    
+    func getCategories() -> [CategoryItem] {
+        return []
     }
     
 }

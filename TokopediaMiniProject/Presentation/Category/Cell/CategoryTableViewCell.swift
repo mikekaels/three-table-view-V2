@@ -1,18 +1,20 @@
 //
-//  CategoryViewCell.swift
+//  CategoryTableViewCell.swift
 //  TokopediaMiniProject
 //
-//  Created by Santo Michael Sihombing on 10/04/22.
+//  Created by Santo Michael Sihombing on 13/04/22.
 //
 
 import UIKit
 import Core
 
-class CategoryViewCell: UITableViewCell {
+class CategoryTableViewCell: DisposableTableViewCell {
     
-    var treeNode: TreeViewNode!
+    var treeNode: TreeNode!
     
-    private let categoryLabel = UILabel()
+    var viewModel: CategoryCellViewModel!
+    
+    private var categoryLabel = UILabel()
         .configure { v in
             v.numberOfLines = 0
             v.font = UIFont.systemFont(ofSize: 15, weight: .regular)
@@ -53,45 +55,40 @@ class CategoryViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configureCell(node: TreeViewNode) {
-        if let category = node.nodeObject {
-            
-            if let _ = node.nodeChildren {
-                self.categoryLabel.text = String(repeating: "    ", count: (category.level >= 0 ? category.level : 0)) + "\(!node.isExpanded! ? "+" : "-") \(category.title)"
-            } else {
-                self.categoryLabel.text = String(repeating: "    ", count: (category.level >= 0 ? category.level : 0)) + "\(!node.isExpanded! ? "+" : "-") \(category.title)"
-            }
-        }
+    
+}
+
+extension CategoryTableViewCell: BindableType {
+    func bindViewModel() {
+        viewModel.name
+            .drive(categoryLabel.rx.text)
+            .disposed(by: disposeBag)
         
-        if let children = node.nodeChildren {
-            self.childrenLabel.text = "\(children.count) Children"
-        } else {
-            self.childrenLabel.text = ""
-        }
-        
-        self.treeNode = node
+        viewModel.children
+            .drive(childrenLabel.rx.text)
+            .disposed(by: disposeBag)
     }
     
-   func expand() {
-        if self.treeNode != nil {
-            
-            if self.treeNode.nodeChildren != nil {
-                
-                if self.treeNode.isExpanded == true {
-                    
-                    self.treeNode.isExpanded = false
-                    
-                } else {
-                    
-                    self.treeNode.isExpanded = true
-                }
-            }  else {
-                
-                self.treeNode.isExpanded = false
-                
-            }
-            
-            self.isSelected = false
-        }
-    }
+//    func expand() {
+//        if self.treeNode != nil {
+//            
+//            if self.treeNode.subNodes != nil {
+//                
+//                if self.treeNode.isOpen == true {
+//                    
+//                    self.treeNode.isOpen = false
+//                    
+//                } else {
+//                    
+//                    self.treeNode.isOpen = true
+//                }
+//            }  else {
+//                
+//                self.treeNode.isOpen = false
+//                
+//            }
+//            
+//            self.isSelected = false
+//        }
+//    }
 }
