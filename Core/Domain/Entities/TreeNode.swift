@@ -15,6 +15,7 @@ public class TreeNode: NSObject {
     public var levelString = ""
     public var index: String = ""
     public var parentId: String = ""
+    public var highlited: String = ""
     
     public var level: Int {
         return levelString.components(separatedBy: ".").count

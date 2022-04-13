@@ -111,7 +111,7 @@ extension CategoryViewModelPresentation {
         var result = [TreeNode]()
         
         items.forEach { item in
-            
+            item.highlited = text
             if item.name.lowercased().contains("\(text.lowercased())") {
                 if !item.isLeaf {
                     result.append(item)

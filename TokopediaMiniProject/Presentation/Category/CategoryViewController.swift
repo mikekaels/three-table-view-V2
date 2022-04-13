@@ -88,7 +88,7 @@ extension CategoryViewController {
         return { _, tableView, indexPath, item in
             var cell: CategoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifier, for: indexPath) as! CategoryTableViewCell
             
-            cell.bind(to: CategoryCellViewModel(name: item.name, children: item.subNodes.count, level: item.level))
+            cell.bind(to: CategoryCellViewModel(name: item.name, children: item.subNodes.count, level: item.level, highlited: item.highlited))
             
             return cell
         }

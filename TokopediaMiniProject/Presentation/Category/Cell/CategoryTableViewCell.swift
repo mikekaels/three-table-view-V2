@@ -60,12 +60,22 @@ class CategoryTableViewCell: DisposableTableViewCell {
 
 extension CategoryTableViewCell: BindableType {
     func bindViewModel() {
-        viewModel.name
-            .drive(categoryLabel.rx.text)
-            .disposed(by: disposeBag)
-        
         viewModel.children
             .drive(childrenLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.highlited.asDriver()
+            .map { [weak self] highlighted in
+                guard let `self` = self else { return }
+                
+                self.viewModel.name.asDriver()
+                    .map{ name in
+                        return name.transform(highlighted)
+                    }
+                    .drive(self.categoryLabel.rx.attributedText)
+                    .disposed(by: self.disposeBag)
+            }
+            .drive()
             .disposed(by: disposeBag)
     }
 }
