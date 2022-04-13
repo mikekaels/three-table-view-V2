@@ -14,18 +14,6 @@
           "iconBannerURL": "",
           "child": [
             {
-              "id": "2700",
-              "name": "Makanan Ringan",
-              "identifier": "makanan-minuman_makanan-ringan",
-              "url": "https://www.tokopedia.com/p/makanan-minuman/makanan-ringan",
-              "iconImageUrl": "https://ecs7.tokopedia.net/img/attachment/2020/3/19/82120085/82120085_d861608c-32b9-4c27-af4e-2348100a4f78.png",
-              "iconImageUrlGray": "",
-              "parentName": "Makanan & Minuman",
-              "applinks": "tokopedia://category/2700?categoryName=Makanan+Ringan",
-              "iconBannerURL": "",
-              "child": []
-            },
-            {
               "id": "2149",
               "name": "Perawatan Kaki & Tangan",
               "identifier": "perawatan-tubuh_perawatan-kaki-tangan",

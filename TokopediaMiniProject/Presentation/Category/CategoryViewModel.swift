@@ -69,6 +69,7 @@ extension CategoryViewModelPresentation {
                 items = items.filter { $0.parentId != node.index }
                 items.insert(contentsOf: subNodes, at: insertIndex)
             } else if node.isOpen && self.onSearch == false {
+
                 items.insert(contentsOf: subNodes, at: insertIndex)
             } else {
                 for subNode in subNodes {
@@ -76,7 +77,7 @@ extension CategoryViewModelPresentation {
                     items.remove(at: index)
                 }
             }
-            
+
             self._categories.accept(items)
             return node
         }
@@ -125,6 +126,7 @@ extension CategoryViewModelPresentation {
                     let found = search(item.needsDisplayNodes, text)
                     if found.count != 0 {
                         result.append(item)
+
                         result.append(contentsOf: found)
                     }
                 }
