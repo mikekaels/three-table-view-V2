@@ -10,12 +10,18 @@ import RxSwift
 import UIKit
 
 class CategoryCellViewModel: DisposableViewModel {
-    var name: Driver<String>
-    var children: Driver<String>
+    let name: Driver<String>
+    let children: Driver<String>
+//    let id: Driver<String>
     
-    init(name: String, children: Int, level: Int) {
+    init(name: String,
+         children: Int,
+         level: Int
+//         id: String
+    ) {
         self.name = .just("\(String(repeating: "       ", count: level > 1 ? level - 1 : 0)) \(name)")
         
         self.children = .just(children != 0 ? "\(children) Children " : "")
+//        self.id = .just(id)
     }
 }

@@ -46,32 +46,36 @@ public class CategoryItem {
 
 extension CategoryRequests.Response {
     func toDomain() -> [TreeNode]  {
-//        print("CATEGORY RESPONSE: ", self.data.categoryAllList.categories[0])
         let categories = self.data.categoryAllList.categories
         var trees = [TreeNode]()
         
         for i in 0..<categories.count{
-            let tree = modelWithDictionary(categories[i], levelString: i, parent: nil)
+            let tree = modelWithDictionary(categories[i], levelString: i, parent: nil, parentId: String(0))
             trees.append(tree)
         }
         
         return trees
     }
     
-    func modelWithDictionary(_ dict: CategoryData, levelString index: Int, parent levelString: String?) -> TreeNode{
-        var model = TreeNode()
+    func modelWithDictionary(_ dict: CategoryData, levelString index: Int, parent levelString: String?, parentId: String) -> TreeNode{
+        let model = TreeNode()
+        
         model.levelString = levelString != nil ? (levelString! + ".\(index + 1)") : "\(index + 1)"
+        
         if let child = dict.child {
-            
             var trees = [TreeNode]()
             for i in 0..<child.count{
-                let tree = modelWithDictionary(child[i], levelString: i, parent: model.levelString)
+                let tree = modelWithDictionary(child[i], levelString: i, parent: model.levelString, parentId: dict.id)
                 trees.append(tree)
             }
             model.subNodes = trees
         }
+        
         model.name = dict.name
-        model.index = String(index)
+        
+        model.index = dict.id
+        
+        model.parentId = parentId
         return model
     }
     

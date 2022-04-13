@@ -14,6 +14,7 @@ public class TreeNode: NSObject {
     public var subNodes = [TreeNode]()
     public var levelString = ""
     public var index: String = ""
+    public var parentId: String = ""
     
     public var level: Int {
         return levelString.components(separatedBy: ".").count
@@ -34,29 +35,10 @@ extension TreeNode: IdentifiableType {
     
     public typealias Identity = String
     
-    public var identity : Identity { return name }
-}
-
-
-extension TreeNode{
-    public override func setValue(_ value: Any?, forUndefinedKey key: String) {
-        if key == "child", let child = value as? [[String: Any]]{
-            for i in 0..<child.count {
-                let tree = TreeNode.modelWithDictionary(child[i], levelString: i,parent: levelString)
-                subNodes.append(tree)
-            }
-        }
-    }
-    
-    public static func modelWithDictionary(_ dict: [String: Any], levelString index: Int, parent levelString: String?) -> TreeNode{
-        let model = TreeNode()
-        model.levelString = levelString != nil ? (levelString! + ".\(index + 1)") : "\(index + 1)"
-        model.name = dict["name"] as! String
-        model.setValuesForKeys(dict)
-        return model
+    public var identity: Identity {
+        return index
     }
 }
-
 
 extension TreeNode{
     public var needsDisplayNodes: [TreeNode]{

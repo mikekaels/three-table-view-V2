@@ -45,9 +45,9 @@ class CategoryViewController: ViewController {
     
     private func configureDataSource() {
         dataSource = RxTableViewSectionedAnimatedDataSource<CategoryListSectionModel>(
-            animationConfiguration: AnimationConfiguration(insertAnimation: .top,
-                                                           reloadAnimation: .automatic,
-                                                           deleteAnimation: .bottom),
+//            animationConfiguration: AnimationConfiguration(insertAnimation: .top,
+//                                                           reloadAnimation: .automatic,
+//                                                           deleteAnimation: .bottom),
             configureCell: configureCell
         )
     }
@@ -75,7 +75,6 @@ class CategoryViewController: ViewController {
             .disposed(by: disposeBag)
         
         viewModel.textSearchDidChange(selection: categoryView.searchController.searchBar.searchTextField.rx.text.asDriver())
-            .skip(1)
             .drive()
             .disposed(by: disposeBag)
     }
