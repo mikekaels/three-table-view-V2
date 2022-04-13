@@ -71,6 +71,10 @@ class CategoryViewController: ViewController {
                                     tableView: categoryView.tableview)
             .drive()
             .disposed(by: disposeBag)
+        
+        viewModel.textSearchDidChange(selection: categoryView.searchController.searchBar.searchTextField.rx.text.asDriver())
+            .drive()
+            .disposed(by: disposeBag)
     }
 }
 
