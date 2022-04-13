@@ -25,6 +25,7 @@ class CategoryViewModelPresentation: DisposableViewModel, CategoryViewModel {
     
     private var _categories = BehaviorRelay<[TreeNode]>(value: [])
     var _textSearch = BehaviorRelay<String>(value: "")
+    let showLoading = BehaviorRelay<Bool>(value: false)
     private var tempCategories = [TreeNode]()
     private var onSearch = false
     
@@ -38,12 +39,15 @@ class CategoryViewModelPresentation: DisposableViewModel, CategoryViewModel {
 extension CategoryViewModelPresentation {
     
     func loadCategories() {
+        self.showLoading.accept(true)
         self.useCase.getCategories()
             .subscribe(onNext: { [weak self] data in
                 guard let `self` = self else { return }
                 self._categories.accept(data)
                 self.tempCategories = data
-            }).disposed(by: disposeBag)
+                self.showLoading.accept(false)
+            })
+            .disposed(by: disposeBag)
     }
     
     func didSelectCategory(selection: SharedSequence<DriverSharingStrategy, TreeNode>,
@@ -84,14 +88,19 @@ extension CategoryViewModelPresentation {
     }
     
     func textSearchDidChange(selection: Driver<String?>) -> Driver<String?> {
+        
         return selection
             .debounce(.milliseconds(2000))
+//            .map{ text -> String in
+//                self.showLoading.accept(true)
+//                return text!
+//            }
             .withLatestFrom(textSearch) { text, _  in
                 self.onSearch = true
                 return text
             }.do(onNext: { [weak self] text in
                 guard let `self` = self else { return }
-                
+
                 let items = self.tempCategories
                 
                 guard let text = text, text.count != 0 else {
@@ -103,6 +112,8 @@ extension CategoryViewModelPresentation {
                 let result = self.search(items, text)
                     
                 self._categories.accept(result.isEmpty ? text.count > 0 ? result : items : result)
+            }).do(onNext: { [weak self] text in
+
             })
         }
     
@@ -147,6 +158,7 @@ protocol CategoryViewModelInput {
 protocol CategoryViewModelOutput {
     var categories: Driver<[TreeNode]> { get }
     var _textSearch: BehaviorRelay<String> { get }
+    var showLoading: BehaviorRelay<Bool> { get }
 }
 
 protocol CategoryViewModel:  CategoryViewModelInput, CategoryViewModelOutput {}

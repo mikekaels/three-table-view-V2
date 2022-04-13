@@ -30,6 +30,7 @@
 		BD8B2B062806DAD7006980B8 /* NSObject + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2A2228031D5700562118 /* NSObject + Extension.swift */; };
 		BD8B2B112806E00D006980B8 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B2B102806E00D006980B8 /* BindableType.swift */; };
 		BD8B2B1328074EFD006980B8 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B2B1228074EFD006980B8 /* AttributedString.swift */; };
+		BD8B2B1528075DF0006980B8 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B2B1428075DF0006980B8 /* UIView + Extension.swift */; };
 		BDAD2962280207B300562118 /* NetworkInfrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDAD295A280207B200562118 /* NetworkInfrastructure.framework */; };
 		BDAD2969280207B300562118 /* NetworkInfrastructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2968280207B300562118 /* NetworkInfrastructureTests.swift */; };
 		BDAD296A280207B300562118 /* NetworkInfrastructure.h in Headers */ = {isa = PBXBuildFile; fileRef = BDAD295C280207B200562118 /* NetworkInfrastructure.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -247,6 +248,7 @@
 		BD8B2B032806D612006980B8 /* RxBehaviorRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBehaviorRelay.swift; sourceTree = "<group>"; };
 		BD8B2B102806E00D006980B8 /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		BD8B2B1228074EFD006980B8 /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
+		BD8B2B1428075DF0006980B8 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		BDAD295A280207B200562118 /* NetworkInfrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkInfrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDAD295C280207B200562118 /* NetworkInfrastructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkInfrastructure.h; sourceTree = "<group>"; };
 		BDAD2961280207B300562118 /* NetworkInfrastructureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkInfrastructureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -562,6 +564,7 @@
 				BDAD29A328020D1D00562118 /* ScrollableView.swift */,
 				BDAD29FB2802110700562118 /* UILoadingView.swift */,
 				BDAD2A022802173900562118 /* UICustomTableView.swift */,
+				BD8B2B1428075DF0006980B8 /* UIView + Extension.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -1379,6 +1382,7 @@
 				BDAD29A228020BA500562118 /* ViewController.swift in Sources */,
 				BDAD29A428020D1D00562118 /* ScrollableView.swift in Sources */,
 				BDAD2A032802173900562118 /* UICustomTableView.swift in Sources */,
+				BD8B2B1528075DF0006980B8 /* UIView + Extension.swift in Sources */,
 				BDAD29FC2802110700562118 /* UILoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

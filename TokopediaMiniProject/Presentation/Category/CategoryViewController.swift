@@ -36,6 +36,7 @@ class CategoryViewController: ViewController {
         self.navigationItem.searchController = categoryView?.searchController
         
         viewModel?.loadCategories()
+        
     }
     
     internal var viewModel: CategoryViewModel!
@@ -75,6 +76,17 @@ class CategoryViewController: ViewController {
             .disposed(by: disposeBag)
         
         viewModel.textSearchDidChange(selection: categoryView.searchController.searchBar.searchTextField.rx.text.asDriver())
+            .drive()
+            .disposed(by: disposeBag)
+        
+        viewModel.showLoading.asDriver()
+            .map({ value in
+                if value == true {
+                    self.view.showBlurLoader()
+                } else {
+                    self.view.removeBluerLoader()
+                }
+            })
             .drive()
             .disposed(by: disposeBag)
     }

@@ -21,6 +21,10 @@ def rx_dataSource
   pod 'RxDataSources'
 end
 
+def lottie
+  pod 'lottie-ios'
+end
+
 def test_pods
     pod 'RxTest', '6.5.0'
     pod 'RxBlocking', '6.5.0'
@@ -49,6 +53,7 @@ target 'CommonUI' do
   rx_swift
   rx_cocoa
   rx_dataSource
+  lottie
   target 'CommonUITests' do
     # Pods for testing
   end
