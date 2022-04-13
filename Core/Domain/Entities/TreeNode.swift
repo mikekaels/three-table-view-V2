@@ -34,7 +34,7 @@ extension TreeNode: IdentifiableType {
     
     public typealias Identity = String
     
-    public var identity : Identity { return index }
+    public var identity : Identity { return name }
 }
 
 

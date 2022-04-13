@@ -68,27 +68,4 @@ extension CategoryTableViewCell: BindableType {
             .drive(childrenLabel.rx.text)
             .disposed(by: disposeBag)
     }
-    
-//    func expand() {
-//        if self.treeNode != nil {
-//            
-//            if self.treeNode.subNodes != nil {
-//                
-//                if self.treeNode.isOpen == true {
-//                    
-//                    self.treeNode.isOpen = false
-//                    
-//                } else {
-//                    
-//                    self.treeNode.isOpen = true
-//                }
-//            }  else {
-//                
-//                self.treeNode.isOpen = false
-//                
-//            }
-//            
-//            self.isSelected = false
-//        }
-//    }
 }

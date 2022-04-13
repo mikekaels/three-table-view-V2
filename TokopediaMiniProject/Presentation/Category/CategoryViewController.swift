@@ -13,6 +13,8 @@ import Core
 
 class CategoryViewController: ViewController {
     
+    typealias CategoryListSectionModel = AnimatableSectionModel<String, TreeNode>
+    
     public func inject(viewModel: CategoryViewModel,
                        categoryView: CategoryView) {
         self.viewModel = viewModel
@@ -37,13 +39,14 @@ class CategoryViewController: ViewController {
     
     internal var viewModel: CategoryViewModel!
     private var categoryView: CategoryView?
-    var dataSource: RxTableViewSectionedReloadDataSource<DataModel>!
+    
+    var dataSource: RxTableViewSectionedAnimatedDataSource<CategoryListSectionModel>!
     
     private func configureDataSource() {
-        dataSource = RxTableViewSectionedReloadDataSource<DataModel>(
-//            animationConfiguration: AnimationConfiguration(insertAnimation: .left,
-//                                                           reloadAnimation: .none,
-//                                                           deleteAnimation: .left),
+        dataSource = RxTableViewSectionedAnimatedDataSource<CategoryListSectionModel>(
+            animationConfiguration: AnimationConfiguration(insertAnimation: .top,
+                                                           reloadAnimation: .automatic,
+                                                           deleteAnimation: .bottom),
             configureCell: configureCell
         )
     }
@@ -57,11 +60,14 @@ class CategoryViewController: ViewController {
         
         configureDataSource()
         
+        // Bind Data
         viewModel.categories.asDriver()
+            .map { [CategoryListSectionModel(model: "", items: $0)]}
             .drive(categoryView.tableview.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        viewModel.didSelectCategory(selection: categoryView.tableview.rx.itemSelected.asDriver(),
+        // Bind DidSelectedCell
+        viewModel.didSelectCategory(selection: categoryView.tableview.rx.modelSelected(TreeNode.self).asDriver(),
                                     tableView: categoryView.tableview)
             .drive()
             .disposed(by: disposeBag)
@@ -71,7 +77,8 @@ class CategoryViewController: ViewController {
 //MARK: - DATA SOURCE CONFIGURATION
 
 extension CategoryViewController {
-    private var configureCell: RxTableViewSectionedReloadDataSource<DataModel>.ConfigureCell {
+    // Bind Cell to ViewModel
+    private var configureCell: RxTableViewSectionedAnimatedDataSource<CategoryListSectionModel>.ConfigureCell {
         return { _, tableView, indexPath, item in
             var cell: CategoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifier, for: indexPath) as! CategoryTableViewCell
             

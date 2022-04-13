@@ -29,3 +29,4 @@ extension BindableType where Self: UIView {
         bindViewModel()
     }
 }
+

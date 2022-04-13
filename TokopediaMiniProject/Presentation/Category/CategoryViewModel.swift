@@ -10,87 +10,77 @@ import Core
 import RxSwift
 import RxCocoa
 
-protocol CategoryViewModelInput {
-    func loadCategories()
-    func didSelectCategory(selection: Driver<IndexPath>, tableView: UITableView) -> Driver<Item>
-}
-
-protocol CategoryViewModelOutput {
-    var categories: Driver<[DataModel]> { get }
-}
-
-protocol CategoryViewModel: CategoryViewModelInput, CategoryViewModelOutput {}
-
-
-class CategoryViewModelPresentation: CategoryViewModel {
+class CategoryViewModelPresentation: DisposableViewModel, CategoryViewModel {
     
-    var categories: Driver<[DataModel]> {
+    var categories: Driver<[TreeNode]> {
         return _categories.asDriver()
     }
     
     private let useCase: HomeViewUseCase
-    private let disposeBag = DisposeBag()
-    
     private let coordinator: CategoryCoordinator
     
-    private var _categories = BehaviorRelay<[DataModel]>(value: [])
-    private var displayArray = [Item]()
-    private var nodes: [Item] = []
+    private var _categories = BehaviorRelay<[TreeNode]>(value: [])
     
-    init(HomeUseCase: HomeViewUseCase,
+    init(useCase: HomeViewUseCase,
          coordinator: CategoryCoordinator) {
-        self.useCase = HomeUseCase
+        self.useCase = useCase
         self.coordinator = coordinator
-        
-        
     }
+}
+
+extension CategoryViewModelPresentation {
     
     func loadCategories() {
         self.useCase.getCategories()
             .subscribe(onNext: { [weak self] data in
                 guard let `self` = self else { return }
-                self.nodes = data
-                self._categories.accept([DataModel(header: "Categories", items: data)])
+                self._categories.accept(data)
             }).disposed(by: disposeBag)
     }
     
-    func didSelectCategory(selection: Driver<IndexPath>, tableView: UITableView) -> Driver<Item> {
-        return selection.withLatestFrom(categories) { [weak self] indexPath, categories in
-
-            guard let `self` = self else { return self!.displayArray[indexPath.row]}
+    func didSelectCategory(selection: SharedSequence<DriverSharingStrategy, TreeNode>,
+                           tableView: UITableView) -> Driver<TreeNode> {
+        
+        return selection.withLatestFrom(categories) { [weak self] selectedItem, allItems in
             
-            if let _ = tableView.cellForRow(at: indexPath) as? CategoryTableViewCell {
-                
-                let node = self.nodes[indexPath.row]
-                if node.isLeaf {
-                    return self.nodes[indexPath.row]
-                }
-                node.isOpen = !node.isOpen
-
-                let subNodes = node.needsDisplayNodes
-//                print("NODES: ", subNodes)
-                
-                let insertIndex = self.nodes.firstIndex(of: node)! + 1
-                
-                if node.isOpen {
-                    self.nodes.insert(contentsOf: subNodes, at: insertIndex)
-                    
-                } else {
-                    for subNode in subNodes {
-                        guard let index = self.nodes.firstIndex(of: subNode) else {
-                            continue
-                        }
-                        self.nodes.remove(at: index)
-
-                    }
+            guard let `self` = self else { return TreeNode() }
+            
+            var items = allItems
+            
+            let node = selectedItem
+            
+            if node.isLeaf { return node }
+            
+            node.isOpen = !node.isOpen
+            
+            let subNodes = node.needsDisplayNodes
+            
+            let insertIndex = items.firstIndex(of: node)! + 1
+            
+            if node.isOpen { items.insert(contentsOf: subNodes, at: insertIndex) }
+            
+            else {
+                for subNode in subNodes {
+                    guard let index = items.firstIndex(of: subNode) else { continue }
+                    items.remove(at: index)
                 }
             }
             
-            self._categories.accept([DataModel(header: "Categories", items: self.nodes)])
-
-            return categories[0].items[indexPath.row]
-        }.do(onNext: { category in
-//            print(category)
-        })
-            }
+            self._categories.accept(items)
+            
+            return node
+        }
+    }
 }
+
+
+protocol CategoryViewModelInput {
+    func loadCategories()
+    func didSelectCategory(selection: SharedSequence<DriverSharingStrategy, TreeNode>, tableView: UITableView) -> Driver<TreeNode>
+}
+
+protocol CategoryViewModelOutput {
+    var categories: Driver<[TreeNode]> { get }
+}
+
+protocol CategoryViewModel:  CategoryViewModelInput, CategoryViewModelOutput {}

@@ -26,6 +26,9 @@
 		BD470E6828037B4100A40985 /* CategoryDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD470E6728037B4100A40985 /* CategoryDataRepository.swift */; };
 		BD470E6A28037B7900A40985 /* CategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD470E6928037B7900A40985 /* CategoryRepository.swift */; };
 		BD470E6C28037E6600A40985 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD470E6B28037E6600A40985 /* HomeUseCase.swift */; };
+		BD8B2B042806D612006980B8 /* RxBehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B2B032806D612006980B8 /* RxBehaviorRelay.swift */; };
+		BD8B2B062806DAD7006980B8 /* NSObject + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2A2228031D5700562118 /* NSObject + Extension.swift */; };
+		BD8B2B112806E00D006980B8 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B2B102806E00D006980B8 /* BindableType.swift */; };
 		BDAD2962280207B300562118 /* NetworkInfrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDAD295A280207B200562118 /* NetworkInfrastructure.framework */; };
 		BDAD2969280207B300562118 /* NetworkInfrastructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2968280207B300562118 /* NetworkInfrastructureTests.swift */; };
 		BDAD296A280207B300562118 /* NetworkInfrastructure.h in Headers */ = {isa = PBXBuildFile; fileRef = BDAD295C280207B200562118 /* NetworkInfrastructure.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,7 +67,6 @@
 		BDAD2A0F2802323200562118 /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2A0E2802323200562118 /* NetworkAPI.swift */; };
 		BDAD2A122802325A00562118 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2A112802325A00562118 /* NetworkService.swift */; };
 		BDAD2A202803183400562118 /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2A1F2803183400562118 /* CategoryViewCell.swift */; };
-		BDAD2A2328031D5700562118 /* NSObject + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2A2228031D5700562118 /* NSObject + Extension.swift */; };
 		BDAD2A282803221900562118 /* TreeViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2A272803221900562118 /* TreeViewNode.swift */; };
 		BDAD2A2A2803258800562118 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD2A292803258800562118 /* CategoryItem.swift */; };
 		BDB5EF3B2805AAA6007B724E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF3A2805AAA6007B724E /* CategoryViewController.swift */; };
@@ -72,9 +74,7 @@
 		BDB5EF3F2805AAD6007B724E /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF3E2805AAD6007B724E /* CategoryView.swift */; };
 		BDB5EF412805AAE3007B724E /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF402805AAE3007B724E /* CategoryViewModel.swift */; };
 		BDB5EF432805D1BC007B724E /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF422805D1BC007B724E /* TreeNode.swift */; };
-		BDB5EF472805E2D4007B724E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF462805E2D4007B724E /* DataModel.swift */; };
 		BDB5EF4A2805E9C2007B724E /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF492805E9C2007B724E /* CategoryTableViewCell.swift */; };
-		BDB5EF4C2805FA83007B724E /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF4B2805FA83007B724E /* BindableType.swift */; };
 		BDB5EF502805FAFA007B724E /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF4F2805FAFA007B724E /* CategoryCellViewModel.swift */; };
 		BDB5EF532805FBC6007B724E /* DisposableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF522805FBC6007B724E /* DisposableViewModel.swift */; };
 		BDB5EF552805FC36007B724E /* DisposableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF542805FC36007B724E /* DisposableTableViewCell.swift */; };
@@ -243,6 +243,8 @@
 		BD470E6728037B4100A40985 /* CategoryDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataRepository.swift; sourceTree = "<group>"; };
 		BD470E6928037B7900A40985 /* CategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRepository.swift; sourceTree = "<group>"; };
 		BD470E6B28037E6600A40985 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
+		BD8B2B032806D612006980B8 /* RxBehaviorRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBehaviorRelay.swift; sourceTree = "<group>"; };
+		BD8B2B102806E00D006980B8 /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		BDAD295A280207B200562118 /* NetworkInfrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkInfrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDAD295C280207B200562118 /* NetworkInfrastructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkInfrastructure.h; sourceTree = "<group>"; };
 		BDAD2961280207B300562118 /* NetworkInfrastructureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkInfrastructureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,9 +284,7 @@
 		BDB5EF3E2805AAD6007B724E /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		BDB5EF402805AAE3007B724E /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		BDB5EF422805D1BC007B724E /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
-		BDB5EF462805E2D4007B724E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		BDB5EF492805E9C2007B724E /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
-		BDB5EF4B2805FA83007B724E /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		BDB5EF4F2805FAFA007B724E /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
 		BDB5EF522805FBC6007B724E /* DisposableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableViewModel.swift; sourceTree = "<group>"; };
 		BDB5EF542805FC36007B724E /* DisposableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableTableViewCell.swift; sourceTree = "<group>"; };
@@ -432,6 +432,7 @@
 		813BAED02554E3220083B711 /* TokopediaMiniProject */ = {
 			isa = PBXGroup;
 			children = (
+				BD8B2B082806DBCB006980B8 /* Utilities */,
 				BDAD2977280208DD00562118 /* Presentation */,
 				BDAD29752802084500562118 /* AppCoordinator.swift */,
 				813BAED12554E3220083B711 /* AppDelegate.swift */,
@@ -475,6 +476,36 @@
 			path = CategoryRequest;
 			sourceTree = "<group>";
 		};
+		BD8B2B022806D5FB006980B8 /* RxExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				BD8B2B032806D612006980B8 /* RxBehaviorRelay.swift */,
+			);
+			path = RxExtensions;
+			sourceTree = "<group>";
+		};
+		BD8B2B052806DAC5006980B8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BD8B2B022806D5FB006980B8 /* RxExtensions */,
+				BDB5EF512805FBB0007B724E /* Disposable */,
+				BDAD2A2228031D5700562118 /* NSObject + Extension.swift */,
+				BDAD29EB2802102700562118 /* UIColor + Extension.swift */,
+				BDAD29ED2802103F00562118 /* ColorType.swift */,
+				BDAD29EF2802105C00562118 /* Alertable.swift */,
+				BDAD29FD2802167A00562118 /* Configurable.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BD8B2B082806DBCB006980B8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BD8B2B102806E00D006980B8 /* BindableType.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		BDAD295B280207B200562118 /* NetworkInfrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,7 +532,6 @@
 		BDAD2977280208DD00562118 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				BDAD2A2128031D4700562118 /* Utils */,
 				BDB5EF392805AA62007B724E /* Category */,
 				BDAD2978280208EB00562118 /* Home */,
 			);
@@ -544,9 +574,9 @@
 		BDAD29D028020FD600562118 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BD8B2B052806DAC5006980B8 /* Utilities */,
 				BDAD2A1B2803163A00562118 /* Data */,
 				BDAD2A132803144800562118 /* Domain */,
-				BDAD29EA2802100A00562118 /* Utils */,
 				BDAD29D128020FD600562118 /* Core.h */,
 			);
 			path = Core;
@@ -558,17 +588,6 @@
 				BDAD29DD28020FD600562118 /* CoreTests.swift */,
 			);
 			path = CoreTests;
-			sourceTree = "<group>";
-		};
-		BDAD29EA2802100A00562118 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				BDAD29EB2802102700562118 /* UIColor + Extension.swift */,
-				BDAD29ED2802103F00562118 /* ColorType.swift */,
-				BDAD29EF2802105C00562118 /* Alertable.swift */,
-				BDAD29FD2802167A00562118 /* Configurable.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		BDAD2A04280230B500562118 /* DataMaping */ = {
@@ -663,16 +682,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		BDAD2A2128031D4700562118 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				BDB5EF512805FBB0007B724E /* Disposable */,
-				BDAD2A2228031D5700562118 /* NSObject + Extension.swift */,
-				BDB5EF4B2805FA83007B724E /* BindableType.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		BDAD2A262803220400562118 /* Node */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,7 +699,6 @@
 				BDB5EF3C2805AACE007B724E /* CategoryCoordinator.swift */,
 				BDB5EF3E2805AAD6007B724E /* CategoryView.swift */,
 				BDB5EF402805AAE3007B724E /* CategoryViewModel.swift */,
-				BDB5EF462805E2D4007B724E /* DataModel.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1309,17 +1317,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDAD29762802084500562118 /* AppCoordinator.swift in Sources */,
+				BD8B2B042806D612006980B8 /* RxBehaviorRelay.swift in Sources */,
 				BDAD297E2802095D00562118 /* HomeView.swift in Sources */,
 				BDB5EF532805FBC6007B724E /* DisposableViewModel.swift in Sources */,
+				BD8B2B112806E00D006980B8 /* BindableType.swift in Sources */,
 				BDAD2A202803183400562118 /* CategoryViewCell.swift in Sources */,
 				BDAD2980280209A600562118 /* HomeViewModel.swift in Sources */,
 				BDB5EF3B2805AAA6007B724E /* CategoryViewController.swift in Sources */,
-				BDB5EF472805E2D4007B724E /* DataModel.swift in Sources */,
 				BDAD297A2802091500562118 /* HomeCoordinator.swift in Sources */,
 				813BAED22554E3220083B711 /* AppDelegate.swift in Sources */,
 				BDB5EF412805AAE3007B724E /* CategoryViewModel.swift in Sources */,
 				BD470E602803347700A40985 /* TreeViewList.swift in Sources */,
-				BDB5EF4C2805FA83007B724E /* BindableType.swift in Sources */,
 				BDB5EF3F2805AAD6007B724E /* CategoryView.swift in Sources */,
 				BDB5EF552805FC36007B724E /* DisposableTableViewCell.swift in Sources */,
 				BDAD2A282803221900562118 /* TreeViewNode.swift in Sources */,
@@ -1327,7 +1335,6 @@
 				BDB5EF502805FAFA007B724E /* CategoryCellViewModel.swift in Sources */,
 				BDAD297C2802094200562118 /* HomeViewController.swift in Sources */,
 				BDB5EF3D2805AACE007B724E /* CategoryCoordinator.swift in Sources */,
-				BDAD2A2328031D5700562118 /* NSObject + Extension.swift in Sources */,
 				BDB5EF4A2805E9C2007B724E /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1394,6 +1401,7 @@
 				BDAD29EE2802103F00562118 /* ColorType.swift in Sources */,
 				BD470E6C28037E6600A40985 /* HomeUseCase.swift in Sources */,
 				BD470E6828037B4100A40985 /* CategoryDataRepository.swift in Sources */,
+				BD8B2B062806DAD7006980B8 /* NSObject + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,9 +23,8 @@ class CategoryCoordinatorImplement: CategoryCoordinator {
     func start() {
         let vc = CategoryViewController()
         let view = CategoryView()
-        let repository = CategoryDataRepository()
-        let useCase = HomeViewDomainUseCase(repository: repository)
-        let viewModel = CategoryViewModelPresentation(HomeUseCase: useCase, coordinator: self)
+        let viewModel = CategoryViewModelPresentation(useCase: HomeViewDomainUseCase(repository: CategoryDataRepository()),
+                                                      coordinator: self)
         
         vc.inject(viewModel: viewModel, categoryView: view)
         vc.modalPresentationStyle = .fullScreen
