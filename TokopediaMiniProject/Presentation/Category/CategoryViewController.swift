@@ -11,14 +11,30 @@ import RxDataSources
 import CommonUI
 import Core
 
+protocol CategoryViewDelegate: AnyObject {
+    func categoryTapped(value: String)
+}
+
 class CategoryViewController: ViewController {
     
     typealias CategoryListSectionModel = AnimatableSectionModel<String, TreeNode>
+    weak var delegate: CategoryViewDelegate?
     
     public func inject(viewModel: CategoryViewModel,
-                       categoryView: CategoryView) {
+                       categoryView: CategoryView,
+                       delegate: CategoryViewDelegate) {
         self.viewModel = viewModel
         self.categoryView = categoryView
+        self.delegate = delegate
+    }
+
+    override func viewDidLoad() {
+        self.configureDataSource()
+        super.viewDidLoad()
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationItem.title = "Categories"
+//        self.categoryView?.tableview.tableHeaderView = categoryView?.searchController.searchBar
+        viewModel?.loadCategories()
     }
     
     override func loadView() {
@@ -26,17 +42,6 @@ class CategoryViewController: ViewController {
         self.categoryView?.navigationController = self.navigationController
         self.categoryView?.frame = view.frame
         self.view = categoryView
-    }
-    
-    override func viewDidLoad() {
-        self.configureDataSource()
-        super.viewDidLoad()
-        self.navigationItem.largeTitleDisplayMode = .always
-        self.navigationItem.title = "Categories"
-        self.navigationItem.searchController = categoryView?.searchController
-        
-        viewModel?.loadCategories()
-        
     }
     
     internal var viewModel: CategoryViewModel!
@@ -72,7 +77,13 @@ class CategoryViewController: ViewController {
         viewModel.didSelectCategory(selection: categoryView.tableview.rx.modelSelected(TreeNode.self).asDriver(),
                                     tableView: categoryView.tableview)
             
-            .drive()
+            .drive(onNext: { [weak self] treeNode in
+                guard let `self` = self else { return }
+                if treeNode.isLeaf {
+                    self.delegate?.categoryTapped(value: treeNode.name)
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
             .disposed(by: disposeBag)
         
         viewModel.textSearchDidChange(selection: categoryView.searchController.searchBar.searchTextField.rx.text.asDriver())

@@ -44,7 +44,8 @@ class HomeViewController: ViewController {
               }
         
         homeView.btnSelect.rx.tap.bind { [weak self] _ in
-            viewModel.goToCategory()
+            guard let `self` = self else { return }
+            viewModel.goToCategory(delegate: self)
         }
         .disposed(by: disposeBag)
 
@@ -59,8 +60,10 @@ class HomeViewController: ViewController {
     
 }
 
-extension HomeViewController: HomeViewDelegate {
-    
+extension HomeViewController: HomeViewDelegate, CategoryViewDelegate {
+    func categoryTapped(value: String) {
+        viewModel?.saveCategory(value)
+    }
 }
 
 extension HomeViewController: HomeViewControllerDelegate {

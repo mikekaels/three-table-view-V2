@@ -11,6 +11,8 @@ import RxCocoa
 
 class HomeViewModelPresentation: DisposableViewModel, HomeViewModel {
     
+    
+    
     private let coordinator: HomeCoordinator
    
     init(coordinator: HomeCoordinator) {
@@ -26,18 +28,22 @@ class HomeViewModelPresentation: DisposableViewModel, HomeViewModel {
         self._selectedCategory.accept(UserDefaultsManager.shared.getCategory())
     }
     
-    func goToCategory() {
-        coordinator.toCategory()
+    func goToCategory(delegate: CategoryViewDelegate) {
+        coordinator.toCategory(delegate: delegate)
     }
     
-    
+    func saveCategory(_ value: String) {
+        self._selectedCategory.accept(value)
+        UserDefaultsManager.shared.saveCategory(value: value)
+    }
     
 }
 
 
 protocol HomeViewModelInput {
-    func goToCategory()
+    func goToCategory(delegate: CategoryViewDelegate)
     func getCategory()
+    func saveCategory(_ value: String)
 }
 
 protocol HomeViewModelOutput {

@@ -10,7 +10,7 @@ import UIKit
 import Core
 
 protocol HomeCoordinator: Coordinator {
-    func toCategory()
+    func toCategory(delegate: CategoryViewDelegate)
 }
 
 class HomeCoordinatorImplement: HomeCoordinator {
@@ -30,8 +30,8 @@ class HomeCoordinatorImplement: HomeCoordinator {
         self.navigationController.setViewControllers([vc], animated: false)
     }
     
-    func toCategory() {
-        let coordinator = CategoryCoordinatorImplement(navigationController: navigationController)
+    func toCategory(delegate: CategoryViewDelegate) {
+        let coordinator = CategoryCoordinatorImplement(navigationController: navigationController, delegate: delegate)
         
         coordinator.start()
     }
