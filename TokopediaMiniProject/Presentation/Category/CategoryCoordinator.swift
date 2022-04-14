@@ -27,7 +27,7 @@ class CategoryCoordinatorImplement: CategoryCoordinator {
                                                       coordinator: self)
         
         vc.inject(viewModel: viewModel, categoryView: view)
-        vc.modalPresentationStyle = .fullScreen
-        self.navigationController.setViewControllers([vc], animated: false)
+        self.navigationController.pushViewController(vc, animated: true)
+//        self.navigationController.present(vc, animated: true, completion: nil)
     }
 }

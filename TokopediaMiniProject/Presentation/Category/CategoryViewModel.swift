@@ -90,11 +90,7 @@ extension CategoryViewModelPresentation {
     func textSearchDidChange(selection: Driver<String?>) -> Driver<String?> {
         
         return selection
-            .debounce(.milliseconds(2000))
-//            .map{ text -> String in
-//                self.showLoading.accept(true)
-//                return text!
-//            }
+            .debounce(.milliseconds(300))
             .withLatestFrom(textSearch) { text, _  in
                 self.onSearch = true
                 return text

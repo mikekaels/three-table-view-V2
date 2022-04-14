@@ -10,6 +10,7 @@ import UIKit
 import Core
 
 protocol HomeCoordinator: Coordinator {
+    func toCategory()
 }
 
 class HomeCoordinatorImplement: HomeCoordinator {
@@ -27,6 +28,12 @@ class HomeCoordinatorImplement: HomeCoordinator {
         vc.inject(viewModel: viewModel, homeView: view)
         vc.modalPresentationStyle = .fullScreen
         self.navigationController.setViewControllers([vc], animated: false)
+    }
+    
+    func toCategory() {
+        let coordinator = CategoryCoordinatorImplement(navigationController: navigationController)
+        
+        coordinator.start()
     }
 }
 

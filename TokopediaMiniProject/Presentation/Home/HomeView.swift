@@ -17,24 +17,46 @@ class HomeView: ScrollableView {
     weak var delegate: HomeViewDelegate?
     var navigationController: UINavigationController?
     
-    let tableview = UICustomTableView()
+    let lblYouHaveNoSelected = UILabel()
         .configure { v in
-            v.rowHeight = 50
-            v.isScrollEnabled = false
-            v.register(CategoryViewCell.self, forCellReuseIdentifier: CategoryViewCell.identifier)
+            v.text = "You have no selected category"
+            v.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
             v.translatesAutoresizingMaskIntoConstraints = false
+        }
+    
+    let lblSelected = UILabel()
+        .configure { v in
+            v.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+    
+    let btnSelect = UIButton()
+        .configure { v in
+            v.setTitle("Select", for: .normal)
+            v.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            v.setTitleColor(.button, for: .normal)
+            v.translatesAutoresizingMaskIntoConstraints = false
+            
+            v.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            v.heightAnchor.constraint(equalToConstant: 50).isActive = true
         }
     
     override func setUpUI() {
         super.setUpUI()
         
-        containerView.addSubview(tableview)
+        self.addSubview(lblYouHaveNoSelected)
+        self.addSubview(lblSelected)
+        self.addSubview(btnSelect)
         
         NSLayoutConstraint.activate([
-            tableview.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
-            tableview.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 0),
-            tableview.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: 0),
-            tableview.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: 0)
+            lblYouHaveNoSelected.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 100),
+            lblYouHaveNoSelected.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            lblSelected.topAnchor.constraint(equalTo: self.lblYouHaveNoSelected.bottomAnchor, constant: 30),
+            lblSelected.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            btnSelect.topAnchor.constraint(equalTo: self.lblSelected.bottomAnchor, constant: 100),
+            btnSelect.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
 }

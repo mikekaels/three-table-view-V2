@@ -33,33 +33,27 @@ class HomeViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.largeTitleDisplayMode = .always
-        self.navigationItem.title = ""
+        self.navigationItem.title = "Home"
+        self.viewModel?.getCategory()
     }
-        
-    let dataSource = RxTableViewSectionedAnimatedDataSource<SectionModel>(
-        configureCell: { dataSource, tableView, indexPath, item in
-            let cell: CategoryViewCell = tableView.dequeueReusableCell(withIdentifier: CategoryViewCell.identifier, for: indexPath) as! CategoryViewCell
-        cell.configureCell(node: item)
-        return cell
-    })
     
     override func bindViewModel() {
         guard let homeView = self.homeView,
               let viewModel = self.viewModel else {
                   return
               }
+        
+        homeView.btnSelect.rx.tap.bind { [weak self] _ in
+            viewModel.goToCategory()
+        }
+        .disposed(by: disposeBag)
 
-        viewModel.categories.drive(homeView.tableview
-                                    .rx
-                                    .items(dataSource: dataSource))
-            .disposed(by: disposeBag)
-
-
-
-        viewModel.didSelectCategory(selection: homeView.tableview.rx.itemSelected.asDriver(),
-                                    tableView: homeView.tableview,
-                                    delegate: self)
-            .drive()
+        viewModel.selectedCategory
+            .map({ text in
+                homeView.lblYouHaveNoSelected.text = text.count > 0 ? "You have choosen" : "You have no selected category"
+                return text
+            })
+            .drive(homeView.lblSelected.rx.text)
             .disposed(by: disposeBag)
     }
     
