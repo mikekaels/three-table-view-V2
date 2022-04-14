@@ -20,6 +20,10 @@
 		A07DDD61ADCAA18819A70FA0 /* Pods_TokopediaMiniProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CCC857012618CEC17721AE9 /* Pods_TokopediaMiniProject.framework */; };
 		A18912E503FA23AB0AA94E51 /* Pods_TokopediaMiniProject_TokopediaMiniProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543BFF9DC6271A3F844E51FB /* Pods_TokopediaMiniProject_TokopediaMiniProjectTests.framework */; };
 		B94D52E44891F00C4E2B1A6E /* Pods_CommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A704ED4371F74985654EC6 /* Pods_CommonUI.framework */; };
+		BD3FD76C2807F287003E0DDC /* CategoryLocalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3FD76B2807F287003E0DDC /* CategoryLocalResponse.swift */; };
+		BD3FD7702807F30F003E0DDC /* FileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3FD76F2807F30F003E0DDC /* FileRequest.swift */; };
+		BD3FD7722807F34E003E0DDC /* CategoryLocalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3FD7712807F34E003E0DDC /* CategoryLocalRequest.swift */; };
+		BD3FD7742807F3AE003E0DDC /* NetworkLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3FD7732807F3AE003E0DDC /* NetworkLocal.swift */; };
 		BD470E602803347700A40985 /* TreeViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD470E5F2803347700A40985 /* TreeViewList.swift */; };
 		BD470E642803753100A40985 /* CategoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD470E632803753100A40985 /* CategoryRequest.swift */; };
 		BD470E662803757400A40985 /* CategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD470E652803757400A40985 /* CategoryResponse.swift */; };
@@ -239,6 +243,10 @@
 		85A704ED4371F74985654EC6 /* Pods_CommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C593287ED7304CB27F132BE /* Pods-Core-CoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core-CoreTests.release.xcconfig"; path = "Target Support Files/Pods-Core-CoreTests/Pods-Core-CoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		A57C17892690D9DDA6B12289 /* Pods-Core.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.debug.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.debug.xcconfig"; sourceTree = "<group>"; };
+		BD3FD76B2807F287003E0DDC /* CategoryLocalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLocalResponse.swift; sourceTree = "<group>"; };
+		BD3FD76F2807F30F003E0DDC /* FileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRequest.swift; sourceTree = "<group>"; };
+		BD3FD7712807F34E003E0DDC /* CategoryLocalRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLocalRequest.swift; sourceTree = "<group>"; };
+		BD3FD7732807F3AE003E0DDC /* NetworkLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLocal.swift; sourceTree = "<group>"; };
 		BD470E5F2803347700A40985 /* TreeViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeViewList.swift; sourceTree = "<group>"; };
 		BD470E632803753100A40985 /* CategoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRequest.swift; sourceTree = "<group>"; };
 		BD470E652803757400A40985 /* CategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponse.swift; sourceTree = "<group>"; };
@@ -476,6 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				BD470E632803753100A40985 /* CategoryRequest.swift */,
+				BD3FD7712807F34E003E0DDC /* CategoryLocalRequest.swift */,
 			);
 			path = CategoryRequest;
 			sourceTree = "<group>";
@@ -520,6 +529,7 @@
 				BDAD295C280207B200562118 /* NetworkInfrastructure.h */,
 				BDAD2A0A280231FD00562118 /* APIConfiguration.swift */,
 				BDAD2A0C2802321100562118 /* NetworkError.swift */,
+				BD3FD7732807F3AE003E0DDC /* NetworkLocal.swift */,
 				BDAD2A0E2802323200562118 /* NetworkAPI.swift */,
 				81B7DDC325CB989700C57C74 /* data.json */,
 			);
@@ -600,6 +610,7 @@
 			isa = PBXGroup;
 			children = (
 				BD470E652803757400A40985 /* CategoryResponse.swift */,
+				BD3FD76B2807F287003E0DDC /* CategoryLocalResponse.swift */,
 			);
 			path = DataMaping;
 			sourceTree = "<group>";
@@ -609,6 +620,7 @@
 			children = (
 				BD470E622803751D00A40985 /* CategoryRequest */,
 				BDAD2A07280231B700562118 /* APIRequest.swift */,
+				BD3FD76F2807F30F003E0DDC /* FileRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1358,12 +1370,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDAD2A08280231B700562118 /* APIRequest.swift in Sources */,
+				BD3FD7722807F34E003E0DDC /* CategoryLocalRequest.swift in Sources */,
 				BDAD2A0F2802323200562118 /* NetworkAPI.swift in Sources */,
 				BD470E642803753100A40985 /* CategoryRequest.swift in Sources */,
 				BDAD2A0D2802321100562118 /* NetworkError.swift in Sources */,
+				BD3FD7702807F30F003E0DDC /* FileRequest.swift in Sources */,
 				BDAD2A0B280231FD00562118 /* APIConfiguration.swift in Sources */,
 				BDAD2A122802325A00562118 /* NetworkService.swift in Sources */,
+				BD3FD76C2807F287003E0DDC /* CategoryLocalResponse.swift in Sources */,
 				BD470E662803757400A40985 /* CategoryResponse.swift in Sources */,
+				BD3FD7742807F3AE003E0DDC /* NetworkLocal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,10 @@
 
 import Foundation
 
-public struct CategoryRequests: FileRequest {
+public struct CategoryRequests: APIRequest {
     public typealias Response = CategoryResponse
-    public var filePath: String { "data" }
+    public var pathName: String { "tree/all"}
+    public var queryParameters: [String : Any] { [:] }
     
     public init() {}
 }

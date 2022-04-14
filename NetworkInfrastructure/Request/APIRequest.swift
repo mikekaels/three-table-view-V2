@@ -23,23 +23,6 @@ public protocol APIRequest {
 extension APIRequest {
     public typealias Response = EmptyResponse
     public var baseUrl: String { APIConfiguration.baseUrl }
-    public var fileUrl: String { APIConfiguration.fileUrl }
-    public var url: String { fileUrl + pathName }
+    public var url: String { baseUrl + pathName }
     public var method: HTTPMethod { .get }
 }
-
-public protocol FileRequest {
-    associatedtype Response: Codable
-    
-    var filePath: String { get }
-    var method: HTTPMethod { get }
-    var url: String { get }
-}
-
-extension FileRequest {
-    public typealias Response = EmptyResponse
-    public var filePath: String { APIConfiguration.fileUrl }
-    public var url: String { filePath}
-    public var method: HTTPMethod { .get }
-}
-

@@ -11,15 +11,22 @@ import RxSwift
 
 public final class CategoryDataRepository {
     private let networkAPI: NetworkAPI
+    private let networkLocal: NetworkLocal
     
-    public init(networkAPI: NetworkAPI = NetworkAPI.instance) {
+    public init(networkAPI: NetworkAPI = NetworkAPI.instance, networkLocal: NetworkLocal = NetworkLocal.instance) {
         self.networkAPI = networkAPI
+        self.networkLocal = networkLocal
     }
 }
 
 extension CategoryDataRepository: CategoryRepository {
+    public func fetchLocalCategories() -> Observable<CategoryLocalRequests.Response> {
+        let request: CategoryLocalRequests = CategoryLocalRequests()
+        return networkLocal.fetchFile(request)
+    }
+    
     public func fetchCategories() -> Observable<CategoryRequests.Response> {
         let request: CategoryRequests = CategoryRequests()
-        return networkAPI.fetchFile(request)
+        return networkAPI.fetch(request)
     }
 }

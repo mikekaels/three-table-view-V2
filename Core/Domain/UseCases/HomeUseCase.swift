@@ -11,6 +11,7 @@ import NetworkInfrastructure
 
 public protocol HomeViewUseCase {
     func getCategories() -> Observable<[TreeNode]>
+    func getLocalCategories() -> Observable<[TreeNode]>
 }
 
 public class HomeViewDomainUseCase {
@@ -22,8 +23,13 @@ public class HomeViewDomainUseCase {
 }
 
 extension HomeViewDomainUseCase: HomeViewUseCase {
+    public func getLocalCategories() -> Observable<[TreeNode]> {
+        let data = repository.fetchLocalCategories()
+        return data.map { $0.toDomain() }
+    }
+    
     public func getCategories() -> Observable<[TreeNode]> {
         let data = repository.fetchCategories()
-        return repository.fetchCategories().map { $0.toDomain() }
+        return data.map { $0.toDomain() }
     }
 }

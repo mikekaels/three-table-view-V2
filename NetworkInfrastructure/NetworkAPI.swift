@@ -28,14 +28,6 @@ public class NetworkAPI {
         return self.fetcher.fetch(request: urlRequest,
                                   decodeTo: Request.Response.self)
     }
-
-    public func fetchFile<Request: FileRequest>(_ request: Request) -> Observable<Request.Response> {
-        let path = Bundle.main.path(forResource: request.filePath, ofType: "json")
-        
-        let urlRequest = URL(fileURLWithPath: path!)
-        
-        return self.fetcher.fileFetch(request: urlRequest, decodeTo: Request.Response.self)
-    }
 }
 
 extension Dictionary {

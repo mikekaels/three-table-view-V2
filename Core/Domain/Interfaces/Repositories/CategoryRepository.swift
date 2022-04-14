@@ -11,4 +11,5 @@ import NetworkInfrastructure
 
 public protocol CategoryRepository {
     func fetchCategories() -> Observable<CategoryRequests.Response>
+    func fetchLocalCategories() -> Observable<CategoryLocalRequests.Response>
 }

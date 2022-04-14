@@ -8,6 +8,6 @@
 import Foundation
 
 public enum APIConfiguration {
-    static let baseUrl = "https://hades.tokopedia.com/category/v1/tree/all"
+    static let baseUrl = "https://hades.tokopedia.com/category/v1/"
     static let fileUrl = "data"
 }
