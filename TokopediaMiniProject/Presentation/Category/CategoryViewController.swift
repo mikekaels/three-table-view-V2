@@ -17,7 +17,7 @@ protocol CategoryViewDelegate: AnyObject {
 
 class CategoryViewController: ViewController {
     
-    typealias CategoryListSectionModel = AnimatableSectionModel<String, TreeNode>
+    private typealias CategoryListSectionModel = AnimatableSectionModel<String, TreeNode>
     weak var delegate: CategoryViewDelegate?
     
     public func inject(viewModel: CategoryViewModel,
@@ -33,7 +33,6 @@ class CategoryViewController: ViewController {
         super.viewDidLoad()
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationItem.title = "Categories"
-//        self.categoryView?.tableview.tableHeaderView = categoryView?.searchController.searchBar
         viewModel?.loadCategories()
     }
     
@@ -47,13 +46,13 @@ class CategoryViewController: ViewController {
     internal var viewModel: CategoryViewModel!
     private var categoryView: CategoryView?
     
-    var dataSource: RxTableViewSectionedAnimatedDataSource<CategoryListSectionModel>!
+    private var dataSource: RxTableViewSectionedAnimatedDataSource<CategoryListSectionModel>!
     
     private func configureDataSource() {
         dataSource = RxTableViewSectionedAnimatedDataSource<CategoryListSectionModel>(
-//            animationConfiguration: AnimationConfiguration(insertAnimation: .top,
-//                                                           reloadAnimation: .automatic,
-//                                                           deleteAnimation: .bottom),
+            animationConfiguration: AnimationConfiguration(insertAnimation: .top,
+                                                           reloadAnimation: .automatic,
+                                                           deleteAnimation: .bottom),
             configureCell: configureCell
         )
     }
@@ -80,9 +79,11 @@ class CategoryViewController: ViewController {
             .drive(onNext: { [weak self] treeNode in
                 guard let `self` = self else { return }
                 if treeNode.isLeaf {
-                    self.delegate?.categoryTapped(value: treeNode.name)
-                    self.dismiss(animated: true, completion: nil)
+//                    self.delegate?.categoryTapped(value: treeNode.name)
+//                    self.dismiss(animated: true, completion: nil)
                 }
+                
+                
             })
             .disposed(by: disposeBag)
         
@@ -109,11 +110,18 @@ extension CategoryViewController {
     // Bind Cell to ViewModel
     private var configureCell: RxTableViewSectionedAnimatedDataSource<CategoryListSectionModel>.ConfigureCell {
         return { _, tableView, indexPath, item in
-            var cell: CategoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifier, for: indexPath) as! CategoryTableViewCell
-            
-            cell.bind(to: CategoryCellViewModel(name: item.name, children: item.subNodes.count, level: item.level, highlited: item.highlited, parentId: item.parentId))
-            
-            return cell
+            if item.tree < 3 {
+                var cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifier, for: indexPath) as! CategoryTableViewCell
+                
+                cell.bind(to: CategoryCellViewModel(name: item.name, children: item.subNodes.count, level: item.level, highlited: item.highlited, parentId: item.parentId))
+                
+                return cell
+            } else {
+                var cell = tableView.dequeueReusableCell(withIdentifier: CategoryLvlThreeViewCell.identifier, for: indexPath) as! CategoryLvlThreeViewCell
+                cell.bind(to: CategoryLvlThreeViewModel(categories: self.viewModel.categoriesLvThree))
+                return cell
+            }
         }
     }
 }
+

@@ -20,6 +20,11 @@
 		A07DDD61ADCAA18819A70FA0 /* Pods_TokopediaMiniProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CCC857012618CEC17721AE9 /* Pods_TokopediaMiniProject.framework */; };
 		A18912E503FA23AB0AA94E51 /* Pods_TokopediaMiniProject_TokopediaMiniProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543BFF9DC6271A3F844E51FB /* Pods_TokopediaMiniProject_TokopediaMiniProjectTests.framework */; };
 		B94D52E44891F00C4E2B1A6E /* Pods_CommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A704ED4371F74985654EC6 /* Pods_CommonUI.framework */; };
+		BD3A8FE12808B24D007D33B5 /* CategoryLvlThreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3A8FE02808B24D007D33B5 /* CategoryLvlThreeTableViewCell.swift */; };
+		BD3A8FE32808B2C6007D33B5 /* CategoryItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3A8FE22808B2C6007D33B5 /* CategoryItemCollectionViewCell.swift */; };
+		BD3A8FE52808C7DA007D33B5 /* DisposableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3A8FE42808C7DA007D33B5 /* DisposableCollectionViewCell.swift */; };
+		BD3A8FE72808C86A007D33B5 /* CategoryLvlThreeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3A8FE62808C86A007D33B5 /* CategoryLvlThreeViewModel.swift */; };
+		BD3A8FE92808CBC9007D33B5 /* CategoryItemCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3A8FE82808CBC9007D33B5 /* CategoryItemCollectionViewModel.swift */; };
 		BD3FD76C2807F287003E0DDC /* CategoryLocalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3FD76B2807F287003E0DDC /* CategoryLocalResponse.swift */; };
 		BD3FD7702807F30F003E0DDC /* FileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3FD76F2807F30F003E0DDC /* FileRequest.swift */; };
 		BD3FD7722807F34E003E0DDC /* CategoryLocalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3FD7712807F34E003E0DDC /* CategoryLocalRequest.swift */; };
@@ -241,6 +246,11 @@
 		85A704ED4371F74985654EC6 /* Pods_CommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C593287ED7304CB27F132BE /* Pods-Core-CoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core-CoreTests.release.xcconfig"; path = "Target Support Files/Pods-Core-CoreTests/Pods-Core-CoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		A57C17892690D9DDA6B12289 /* Pods-Core.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.debug.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.debug.xcconfig"; sourceTree = "<group>"; };
+		BD3A8FE02808B24D007D33B5 /* CategoryLvlThreeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLvlThreeTableViewCell.swift; sourceTree = "<group>"; };
+		BD3A8FE22808B2C6007D33B5 /* CategoryItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD3A8FE42808C7DA007D33B5 /* DisposableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD3A8FE62808C86A007D33B5 /* CategoryLvlThreeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLvlThreeViewModel.swift; sourceTree = "<group>"; };
+		BD3A8FE82808CBC9007D33B5 /* CategoryItemCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemCollectionViewModel.swift; sourceTree = "<group>"; };
 		BD3FD76B2807F287003E0DDC /* CategoryLocalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLocalResponse.swift; sourceTree = "<group>"; };
 		BD3FD76F2807F30F003E0DDC /* FileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRequest.swift; sourceTree = "<group>"; };
 		BD3FD7712807F34E003E0DDC /* CategoryLocalRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLocalRequest.swift; sourceTree = "<group>"; };
@@ -476,6 +486,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD3A8FD7280886A2007D33B5 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5EF492805E9C2007B724E /* CategoryTableViewCell.swift */,
+				BD3A8FE02808B24D007D33B5 /* CategoryLvlThreeTableViewCell.swift */,
+				BD3A8FE62808C86A007D33B5 /* CategoryLvlThreeViewModel.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		BD3A8FD8280886B5007D33B5 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BD3A8FE22808B2C6007D33B5 /* CategoryItemCollectionViewCell.swift */,
+				BD3A8FE82808CBC9007D33B5 /* CategoryItemCollectionViewModel.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		BD3A8FDB280890A1007D33B5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5EF4F2805FAFA007B724E /* CategoryCellViewModel.swift */,
+				BD3A8FD8280886B5007D33B5 /* CollectionViewCell */,
+				BD3A8FD7280886A2007D33B5 /* TableViewCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		BD470E622803751D00A40985 /* CategoryRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,7 +729,7 @@
 		BDB5EF392805AA62007B724E /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				BDB5EF482805E982007B724E /* Cell */,
+				BD3A8FDB280890A1007D33B5 /* Cell */,
 				BDB5EF3A2805AAA6007B724E /* CategoryViewController.swift */,
 				BDB5EF3C2805AACE007B724E /* CategoryCoordinator.swift */,
 				BDB5EF3E2805AAD6007B724E /* CategoryView.swift */,
@@ -699,20 +738,12 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		BDB5EF482805E982007B724E /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				BDB5EF492805E9C2007B724E /* CategoryTableViewCell.swift */,
-				BDB5EF4F2805FAFA007B724E /* CategoryCellViewModel.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		BDB5EF512805FBB0007B724E /* Disposable */ = {
 			isa = PBXGroup;
 			children = (
 				BDB5EF522805FBC6007B724E /* DisposableViewModel.swift */,
 				BDB5EF542805FC36007B724E /* DisposableTableViewCell.swift */,
+				BD3A8FE42808C7DA007D33B5 /* DisposableCollectionViewCell.swift */,
 			);
 			path = Disposable;
 			sourceTree = "<group>";
@@ -1312,16 +1343,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3A8FE12808B24D007D33B5 /* CategoryLvlThreeTableViewCell.swift in Sources */,
 				BDAD29762802084500562118 /* AppCoordinator.swift in Sources */,
 				BD8B2B042806D612006980B8 /* RxBehaviorRelay.swift in Sources */,
+				BD3A8FE32808B2C6007D33B5 /* CategoryItemCollectionViewCell.swift in Sources */,
 				BDAD297E2802095D00562118 /* HomeView.swift in Sources */,
 				BDB5EF532805FBC6007B724E /* DisposableViewModel.swift in Sources */,
+				BD3A8FE72808C86A007D33B5 /* CategoryLvlThreeViewModel.swift in Sources */,
 				BD8B2B112806E00D006980B8 /* BindableType.swift in Sources */,
 				BDAD2980280209A600562118 /* HomeViewModel.swift in Sources */,
 				BDB5EF3B2805AAA6007B724E /* CategoryViewController.swift in Sources */,
 				BDAD297A2802091500562118 /* HomeCoordinator.swift in Sources */,
 				813BAED22554E3220083B711 /* AppDelegate.swift in Sources */,
 				BDB5EF412805AAE3007B724E /* CategoryViewModel.swift in Sources */,
+				BD3A8FE92808CBC9007D33B5 /* CategoryItemCollectionViewModel.swift in Sources */,
 				BDB5EF3F2805AAD6007B724E /* CategoryView.swift in Sources */,
 				BDB5EF552805FC36007B724E /* DisposableTableViewCell.swift in Sources */,
 				813BAED42554E3220083B711 /* SceneDelegate.swift in Sources */,
@@ -1392,6 +1427,7 @@
 			files = (
 				BDAD29F02802105C00562118 /* Alertable.swift in Sources */,
 				BD8B2B1328074EFD006980B8 /* AttributedString.swift in Sources */,
+				BD3A8FE52808C7DA007D33B5 /* DisposableCollectionViewCell.swift in Sources */,
 				BDAD29EC2802102700562118 /* UIColor + Extension.swift in Sources */,
 				BDB5EF432805D1BC007B724E /* TreeNode.swift in Sources */,
 				BDAD29FE2802167A00562118 /* Configurable.swift in Sources */,

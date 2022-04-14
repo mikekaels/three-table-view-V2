@@ -30,7 +30,10 @@ class CategoryView: ScrollableView {
             v.rowHeight = 50
             v.isScrollEnabled = true
             v.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.identifier)
+            v.register(CategoryLvlThreeViewCell.self, forCellReuseIdentifier: CategoryLvlThreeViewCell.identifier)
             v.translatesAutoresizingMaskIntoConstraints = false
+            v.rowHeight = UITableView.automaticDimension
+            v.estimatedRowHeight = UITableView.automaticDimension
         }
     
     override func setUpUI() {

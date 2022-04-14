@@ -13,9 +13,14 @@ public class TreeNode: NSObject {
     public var isOpen = false
     public var subNodes = [TreeNode]()
     public var levelString = ""
-    public var index: String = ""
+    
     public var parentId: String = ""
     public var highlited: String = ""
+    public var tree: Int = 3
+    
+    public var imageURL: String = ""
+    
+    public var index: String = UUID().uuidString
     
     public var level: Int {
         return levelString.components(separatedBy: ".").count
@@ -24,9 +29,6 @@ public class TreeNode: NSObject {
         return subNodes.isEmpty
     }
     
-    public override var description: String{
-        return "levelString: \(levelString) name: \(name)"
-    }
 }
 
 extension TreeNode: IdentifiableType {

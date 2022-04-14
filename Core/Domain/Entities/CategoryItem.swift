@@ -76,6 +76,11 @@ extension CategoryRequests.Response {
         model.index = dict.id
         
         model.parentId = parentId
+        
+        model.tree = dict.tree
+        
+        model.imageURL = dict.iconImageURL
+        
         return model
     }
     
@@ -98,7 +103,6 @@ extension CategoryLocalRequests.Response {
     
     func modelWithDictionary(_ dict: CategoryDataLocal, levelString index: Int, parent levelString: String?, parentId: String) -> TreeNode{
         let model = TreeNode()
-        
         model.levelString = levelString != nil ? (levelString! + ".\(index + 1)") : "\(index + 1)"
         
         if let child = dict.child {

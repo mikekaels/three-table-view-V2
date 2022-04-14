@@ -16,10 +16,6 @@ public struct Data: Codable, Equatable {
     public let categories: [CategoryData]
 }
 
-//public struct CategoryAllList: Codable, Equatable {
-//    public let categories: [CategoryData]
-//}
-
 public struct CategoryData: Codable, Equatable {
     public let id, name, identifier: String
     public let url: String
@@ -58,4 +54,3 @@ public struct CategoryData: Codable, Equatable {
         case weight
     }
 }
-
