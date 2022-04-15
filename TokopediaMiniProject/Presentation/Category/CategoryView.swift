@@ -20,7 +20,7 @@ class CategoryView: ScrollableView {
             v.searchBar.searchTextField.textColor = .primary
             v.searchBar.sizeToFit()
             
-            v.definesPresentationContext = true
+            v.definesPresentationContext = false
             v.hidesNavigationBarDuringPresentation = false
             v.obscuresBackgroundDuringPresentation = false
         }

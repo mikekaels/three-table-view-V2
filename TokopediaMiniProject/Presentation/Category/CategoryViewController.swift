@@ -76,7 +76,10 @@ class CategoryViewController: ViewController {
         viewModel.didSelectCategory(selection: categoryView.tableview.rx.modelSelected(TreeNode.self).asDriver(),
                                     tableView: categoryView.tableview)
             
-            .drive()
+            .drive(onNext: { [weak self] _ in
+                guard let `self` = self else { return }
+                self.categoryView?.searchController.searchBar.endEditing(true)
+            })
             .disposed(by: disposeBag)
         
         viewModel.textSearchDidChange(selection: categoryView.searchController.searchBar.rx.text.asDriver())

@@ -125,7 +125,7 @@ extension CategoryLvlThreeViewCell {
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
-        
+
         collectionView!.reloadData()
     }
 }
