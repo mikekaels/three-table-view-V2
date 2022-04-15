@@ -9,10 +9,14 @@ import Foundation
 import RxCocoa
 import Core
 
-class CategoryLvlThreeViewModel: DisposableViewModel {
+class CategoryLvlThreeViewModel: DisposableViewModel, CategoryLblThreeViewModelOutput {
     let categories: Driver<[TreeNode]>
     
     init(categories: [TreeNode]) {
         self.categories = .just(categories)
     }
+}
+
+protocol CategoryLblThreeViewModelOutput {
+
 }

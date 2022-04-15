@@ -76,15 +76,7 @@ class CategoryViewController: ViewController {
         viewModel.didSelectCategory(selection: categoryView.tableview.rx.modelSelected(TreeNode.self).asDriver(),
                                     tableView: categoryView.tableview)
             
-            .drive(onNext: { [weak self] treeNode in
-                guard let `self` = self else { return }
-                if treeNode.isLeaf {
-//                    self.delegate?.categoryTapped(value: treeNode.name)
-//                    self.dismiss(animated: true, completion: nil)
-                }
-                
-                
-            })
+            .drive()
             .disposed(by: disposeBag)
         
         viewModel.textSearchDidChange(selection: categoryView.searchController.searchBar.searchTextField.rx.text.asDriver())
@@ -119,9 +111,16 @@ extension CategoryViewController {
             } else {
                 var cell = tableView.dequeueReusableCell(withIdentifier: CategoryLvlThreeViewCell.identifier, for: indexPath) as! CategoryLvlThreeViewCell
                 cell.bind(to: CategoryLvlThreeViewModel(categories: self.viewModel.categoriesLvThree))
+                cell.delegate = self
                 return cell
             }
         }
     }
 }
 
+extension CategoryViewController: CategoryLvlThreeViewCellDelegate {
+    func didTappedCategory(value: String) {
+        self.delegate?.categoryTapped(value: value)
+        self.dismiss(animated: true, completion: nil)
+    }
+}

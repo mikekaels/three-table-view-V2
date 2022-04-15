@@ -12,12 +12,18 @@ import RxDataSources
 import RxSwift
 import RxCocoa
 
+protocol CategoryLvlThreeViewCellDelegate: AnyObject {
+    func didTappedCategory(value: String)
+}
+
 class CategoryLvlThreeViewCell: DisposableTableViewCell {
     var treeNode: TreeNode!
     
     var viewModel: CategoryLvlThreeViewModel!
     
     var collectionView: UICollectionView!
+    
+    weak var delegate: CategoryLvlThreeViewCellDelegate?
     
     override func draw(_ rect: CGRect) {
         
@@ -65,7 +71,12 @@ extension CategoryLvlThreeViewCell: BindableType {
             .drive(collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-//        viewModel.categories
+        collectionView.rx.modelSelected(TreeNode.self).asDriver()
+            .drive(onNext: { [weak self] node in
+                guard let `self` = self else { return }
+                self.delegate?.didTappedCategory(value: node.name)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -87,7 +98,7 @@ extension CategoryLvlThreeViewCell {
         
         layout.scrollDirection = .horizontal
         
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 45, bottom: 0, right: 20)
         
         layout.itemSize = CGSize(width: 150,
                                  height: 200)
