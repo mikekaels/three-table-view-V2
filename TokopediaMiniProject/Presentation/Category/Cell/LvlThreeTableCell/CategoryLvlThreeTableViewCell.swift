@@ -74,6 +74,7 @@ extension CategoryLvlThreeViewCell: BindableType {
         collectionView.rx.modelSelected(TreeNode.self).asDriver()
             .drive(onNext: { [weak self] node in
                 guard let `self` = self else { return }
+
                 self.delegate?.didTappedCategory(value: node.name)
             })
             .disposed(by: disposeBag)

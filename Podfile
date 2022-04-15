@@ -29,6 +29,10 @@ def kingfisher
   pod 'Kingfisher', '~> 7.0'
 end
 
+def iQKeyboard
+  pod 'IQKeyboardManager'
+end
+
 def test_pods
     pod 'RxTest', '6.5.0'
     pod 'RxBlocking', '6.5.0'
@@ -59,6 +63,7 @@ target 'CommonUI' do
   rx_dataSource
   lottie
   kingfisher
+  iQKeyboard
   target 'CommonUITests' do
     # Pods for testing
   end

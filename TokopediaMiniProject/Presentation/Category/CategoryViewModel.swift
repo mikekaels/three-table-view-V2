@@ -34,6 +34,7 @@ class CategoryViewModelPresentation: DisposableViewModel, CategoryViewModel {
     
     let showLoading = BehaviorRelay<Bool>(value: false)
     private var tempCategories = [TreeNode]()
+    private var tempTextSearch = ""
     private var onSearch = false
     
     init(useCase: HomeViewUseCase,
@@ -62,7 +63,7 @@ extension CategoryViewModelPresentation {
                            tableView: UITableView) -> Driver<TreeNode> {
        
         return selection.withLatestFrom(categories) { [weak self] selectedItem, allItems in
-            print("SELECTED ITEM: ",selectedItem.name)
+
             guard let `self` = self else { return TreeNode() }
 
             var categories = allItems
@@ -131,7 +132,7 @@ extension CategoryViewModelPresentation {
                 categories.insert(contentsOf: [TreeNode()], at: insertIndex  + 1)
                 self._categoriesLvThree.accept(subNodes)
                 
-            } else {
+            } else if !node.isOpen && self.onSearch == true {
                 categories.remove(at: insertIndex + 1)
                 self._categoriesLvThree.accept([])
             }
@@ -159,10 +160,13 @@ extension CategoryViewModelPresentation {
         return selection
             .debounce(.milliseconds(300))
             .withLatestFrom(textSearch) { text, _  in
+                
                 self.onSearch = true
                 return text
             }.do(onNext: { [weak self] text in
+                
                 guard let `self` = self else { return }
+                if self.tempTextSearch == text { return }
 
                 let items = self.tempCategories
                 
@@ -176,6 +180,7 @@ extension CategoryViewModelPresentation {
                 
                 self._categories.accept(result.0.isEmpty ? text.count > 0 ? result.0 : items : result.0)
                 self._categoriesLvThree.accept(result.1)
+                self.tempTextSearch = text
             })
         }
     

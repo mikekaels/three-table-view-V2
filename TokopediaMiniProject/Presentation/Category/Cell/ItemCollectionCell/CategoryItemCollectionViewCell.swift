@@ -18,7 +18,7 @@ class CategoryItemCollectionViewCell: UICollectionViewCell {
     
     var imgItem = UIImageView()
         .configure { v in
-            v.contentMode = .scaleAspectFill
+            v.contentMode = .scaleToFill
             v.clipsToBounds = true
             let urls = URL(string: "https://ecs7.tokopedia.net/img/attachment/2019/7/8/3948/3948_852c3060-505d-4a02-9db5-cf9099b70b2d.png")
             v.kf.indicatorType = .activity
