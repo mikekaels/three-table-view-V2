@@ -64,6 +64,8 @@ extension CategoryLvlThreeViewCell: BindableType {
             .map { [CategoryListSectionModel(model: "", items: $0)]}
             .drive(collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+        
+//        viewModel.categories
     }
 }
 

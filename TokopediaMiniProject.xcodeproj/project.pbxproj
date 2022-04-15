@@ -486,31 +486,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BD3A8FD7280886A2007D33B5 /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				BDB5EF492805E9C2007B724E /* CategoryTableViewCell.swift */,
-				BD3A8FE02808B24D007D33B5 /* CategoryLvlThreeTableViewCell.swift */,
-				BD3A8FE62808C86A007D33B5 /* CategoryLvlThreeViewModel.swift */,
-			);
-			path = TableViewCell;
-			sourceTree = "<group>";
-		};
-		BD3A8FD8280886B5007D33B5 /* CollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				BD3A8FE22808B2C6007D33B5 /* CategoryItemCollectionViewCell.swift */,
-				BD3A8FE82808CBC9007D33B5 /* CategoryItemCollectionViewModel.swift */,
-			);
-			path = CollectionViewCell;
-			sourceTree = "<group>";
-		};
 		BD3A8FDB280890A1007D33B5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				BDB5EF4F2805FAFA007B724E /* CategoryCellViewModel.swift */,
-				BD3A8FD8280886B5007D33B5 /* CollectionViewCell */,
-				BD3A8FD7280886A2007D33B5 /* TableViewCell */,
+				BDEB2F482809718400054522 /* ItemCollectionCell */,
+				BDEB2F472809715500054522 /* LvlThreeTableCell */,
+				BDEB2F462809713A00054522 /* CategoryTableCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -746,6 +727,33 @@
 				BD3A8FE42808C7DA007D33B5 /* DisposableCollectionViewCell.swift */,
 			);
 			path = Disposable;
+			sourceTree = "<group>";
+		};
+		BDEB2F462809713A00054522 /* CategoryTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5EF4F2805FAFA007B724E /* CategoryCellViewModel.swift */,
+				BDB5EF492805E9C2007B724E /* CategoryTableViewCell.swift */,
+			);
+			path = CategoryTableCell;
+			sourceTree = "<group>";
+		};
+		BDEB2F472809715500054522 /* LvlThreeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				BD3A8FE02808B24D007D33B5 /* CategoryLvlThreeTableViewCell.swift */,
+				BD3A8FE62808C86A007D33B5 /* CategoryLvlThreeViewModel.swift */,
+			);
+			path = LvlThreeTableCell;
+			sourceTree = "<group>";
+		};
+		BDEB2F482809718400054522 /* ItemCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				BD3A8FE22808B2C6007D33B5 /* CategoryItemCollectionViewCell.swift */,
+				BD3A8FE82808CBC9007D33B5 /* CategoryItemCollectionViewModel.swift */,
+			);
+			path = ItemCollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
