@@ -24,11 +24,10 @@ class CategoryCoordinatorImplement: CategoryCoordinator {
     func start() {
         let vc = CategoryViewController()
         let view = CategoryView()
-        let viewModel = CategoryViewModelPresentation(useCase: HomeViewDomainUseCase(repository: CategoryDataRepository()),
-                                                      coordinator: self)
+        let useCase = CategoryViewDomainUseCase(repository: CategoryDataRepository())
+        let viewModel = CategoryViewModelPresentation(useCase: useCase, coordinator: self)
         
         vc.inject(viewModel: viewModel, categoryView: view, delegate: delegate)
-//        self.navigationController.pushViewController(vc, animated: true)
         self.navigationController.present(vc, animated: true, completion: nil)
     }
 }

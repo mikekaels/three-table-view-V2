@@ -24,7 +24,7 @@ class CategoryViewModelPresentation: DisposableViewModel, CategoryViewModel {
         return _textSearch.asDriver()
     }
     
-    private let useCase: HomeViewUseCase
+    private let useCase: CategoryViewUseCase
     private let coordinator: CategoryCoordinator
     
     private var _categories = BehaviorRelay<[TreeNode]>(value: [])
@@ -37,7 +37,7 @@ class CategoryViewModelPresentation: DisposableViewModel, CategoryViewModel {
     private var tempTextSearch = ""
     private var onSearch = false
     
-    init(useCase: HomeViewUseCase,
+    init(useCase: CategoryViewUseCase,
          coordinator: CategoryCoordinator) {
         self.useCase = useCase
         self.coordinator = coordinator

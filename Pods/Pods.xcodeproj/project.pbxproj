@@ -127,8 +127,8 @@
 		2FC419D2EDA3A2C174769C9F42B994FD /* DispatchQueueConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BC10557AFCA0C1B0AF1C3D7992CA5A /* DispatchQueueConfiguration.swift */; };
 		2FCCAB4BA1D71EDB993309159D5DFA7C /* RecursiveLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69375DA181266B2974F6C46DC7DF04D4 /* RecursiveLock.swift */; };
 		3147DF6C3909510F9ED8620B19E703C8 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F969B6248B567A1B28183DCD9E01B83 /* DispatchQueue+Extensions.swift */; };
-		31730F6281166643667C6426D56370A4 /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BD38866C0161BB26C44D4540D0716278 /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31B244ADE2B622A2CA961D6000A93E6A /* CurrentThreadScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D3D9F4AF34427C73A41C8DCC422780 /* CurrentThreadScheduler.swift */; };
+		32C174792DC849F0B684BC25E64CBD82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B8063291033C95A8B2A24FA2AD7A79 /* Foundation.framework */; };
 		3310C5D8A30386CAB4F453DEDA9D9EE7 /* Platform.Linux.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68F235D1F2D88E18CBBB66BEA16B171 /* Platform.Linux.swift */; };
 		332FFFD0AB3AD57307386D87354833D4 /* Pods-NetworkInfrastructure-NetworkInfrastructureTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 362E37A70C285D09138659A64B4CAB19 /* Pods-NetworkInfrastructure-NetworkInfrastructureTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		335CCDCEBD9EB7CB33697888F3E0D6F8 /* AnimationKeypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDBF9A44E872AB21AB4542E9B68CECD /* AnimationKeypath.swift */; };
@@ -183,7 +183,6 @@
 		49DC39D2E6C5FDFF7CBAB6856230C60F /* Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FB5F400C221568F6CF01888761E1BB /* Single.swift */; };
 		49E32757F5D405E67A46B71E862DE633 /* Interpolatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC779A27C7DB650B6021E2C4741382A /* Interpolatable.swift */; };
 		49FACB999357CA3636505ECA64A73879 /* Never.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7D12B66667D588A643D8F7287F648 /* Never.swift */; };
-		4A490D2DADB291AFEB1398EDD4F5F2EE /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EAD5E708329469217D2CD8A0B7F94D /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests-dummy.m */; };
 		4A7A2769E3E65BBF61A1929F5070EB80 /* RxRelay-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F5FDDAAA4497D8F8B4F473A8948C9CA8 /* RxRelay-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A9B7F2DB2E7A5D50BB9D79B43767DDF /* ShareReplayScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3714672A283E9FD653BF7069E16275E /* ShareReplayScope.swift */; };
 		4A9CDC6DCF65602C3B8FBDF8B28C129D /* RxRelay-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 047DD718AD4CCEE47FC53D8003077715 /* RxRelay-dummy.m */; };
@@ -438,6 +437,7 @@
 		B3658C29BBDE1033F6269A92E612CB30 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C97C9EA68E8CB18C6B359844332D85 /* Request.swift */; };
 		B3F14F1B196B5858BD951366FA89FA6D /* RxWKNavigationDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D1FE5CBCF412C11825616C62114FA /* RxWKNavigationDelegateProxy.swift */; };
 		B50CAE951FE6B2B57ADDE94632B53B82 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AD2879FC8E3CCE2B2911B0A77CE93 /* ImageAsset.swift */; };
+		B571C80AE357A186DE2CD29E5818A90A /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BD38866C0161BB26C44D4540D0716278 /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B59095D5EF330419B3ADFBAD7EBC2B1F /* NSButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC12A94892EB045E8850E149F02C33 /* NSButton+Rx.swift */; };
 		B5ACECCDD52AF69EBA2E11666BBAEB42 /* RxCollectionViewDataSourceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8734E962536C06F0910E4477047A5439 /* RxCollectionViewDataSourceProxy.swift */; };
 		B5C83F05C6D42CD1F1AA5322952A475F /* FillI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0F314E6023C8BD9A64BFDD39DCE40F /* FillI.swift */; };
@@ -492,13 +492,13 @@
 		CC28AB844EE14AAB863FEBEF35BBB9D7 /* NopDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BB604FF79C1DC9F80C108EB98C976 /* NopDisposable.swift */; };
 		CC5707421B50E69473341DEB4D19483F /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F5285EB5B9346C02246C869C2E9A5C /* Optional.swift */; };
 		CC935B6564D4F333157CA6FDE9D17164 /* PrimitiveSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7571319CB8BE0F1E8E44A89BFD948B1 /* PrimitiveSequence.swift */; };
-		CCAD7FBC0B60514E54D78C3867CB9820 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B8063291033C95A8B2A24FA2AD7A79 /* Foundation.framework */; };
 		CCC74BAFAA40E018CC7C3A6BA09E9FBF /* TakeLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22FA400DD0CABCC3BAD7D4E329BBCB4 /* TakeLast.swift */; };
 		CCECE87431A451056454222F247B89D5 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BC557274910720C70899549C1AED04 /* IQUITextFieldView+Additions.m */; };
 		CCFA27F4FA12518E42AD678ABA2A9238 /* Pods-CommonUI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 393D23ED5585500D9A5130E3DB3945ED /* Pods-CommonUI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD7AC3E1C98EA54F7C05C36C52805220 /* CacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66859BB5D7681C8B4DDADE17D5F2146 /* CacheSerializer.swift */; };
 		CD82340C0739E932322EB77FBCFA6D29 /* PolygonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583C675015747AFE44315DC9401C4B1 /* PolygonNode.swift */; };
 		CE08483A41A5535019BE5E198792480B /* KVORepresentable+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8CE42478826D1DC4A5DA500231DD08 /* KVORepresentable+Swift.swift */; };
+		CE148606CC1760C54390160439D28BD8 /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EAD5E708329469217D2CD8A0B7F94D /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests-dummy.m */; };
 		CE150C3D6D3F9D4DA4F25E6B2831A385 /* LayerTextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080C77947392C40A2C2083A984B2D3BE /* LayerTextProvider.swift */; };
 		CE7D041D5D671CC96459D9C8965939C0 /* OperationQueueScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455929ACA55E6DDD7F10B3E84A726D04 /* OperationQueueScheduler.swift */; };
 		CEBFFEED65D877702B2F36102528CF6D /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C938AC38410CB9A002F00E6F17A88 /* EventMonitor.swift */; };
@@ -783,6 +783,13 @@
 			remoteGlobalIDString = 7AD0C6DCDC9CEC8A3C7C10C7FEE07BE6;
 			remoteInfo = RxCocoa;
 		};
+		7C6D2E90D019F790E12D68691004908B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
+			remoteInfo = Alamofire;
+		};
 		8B54CC1C254A96ED7E61249C26FD9A74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -846,6 +853,13 @@
 			remoteGlobalIDString = EA9EA43B3B503823EE36C60D9C8A865F;
 			remoteInfo = RxSwift;
 		};
+		A7453BF70720FD5144F311CD07B34C4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AD0C6DCDC9CEC8A3C7C10C7FEE07BE6;
+			remoteInfo = RxCocoa;
+		};
 		A8609C06506CC5ED9A3F19B6785A070F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -874,19 +888,19 @@
 			remoteGlobalIDString = 7AD0C6DCDC9CEC8A3C7C10C7FEE07BE6;
 			remoteInfo = RxCocoa;
 		};
+		CDBEA4B734BDE16E6028E9F24E542826 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA9EA43B3B503823EE36C60D9C8A865F;
+			remoteInfo = RxSwift;
+		};
 		CEA07566A95000D6984EDF403D035A51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 401909D4FB2014BF539896BF0CCA48C2;
 			remoteInfo = RxDataSources;
-		};
-		D0B6E305FD4EA60FF25169207C419E58 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
-			remoteInfo = Alamofire;
 		};
 		D2DB870C06A8E2C6E6EE587B88D844AE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -950,6 +964,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
 			remoteInfo = Alamofire;
+		};
+		EE888CFA005AD7BCC328E8DB6244670A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4622BFEF3DC16E8BD15EEFC30D4D0084;
+			remoteInfo = RxRelay;
 		};
 		EEB60AEB2CF0F6A5CCF355B2FB42EBCC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1700,6 +1721,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		01F776478F8DB8CC3BAC365732760ADB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32C174792DC849F0B684BC25E64CBD82 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02F43D4606B010FE9958B11D9E15AB60 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1794,14 +1823,6 @@
 				E719A3B025B9DACE693130120BD9B927 /* Accelerate.framework in Frameworks */,
 				420C200A05BB29E1D299D1BADE9139D2 /* CFNetwork.framework in Frameworks */,
 				3AD5DBB915C2623991F7DBACD173BBB4 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8A6776111C6D0BC3BC16CEC9C84C0D18 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CCAD7FBC0B60514E54D78C3867CB9820 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2860,14 +2881,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		113F5DCD8E899E570B27BE7775F0DC4C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				31730F6281166643667C6426D56370A4 /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2308FBF0AC56BACE8BC8091D100FBCC2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2952,6 +2965,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				122980E44B15C64CF0B14DC94D7EB5C9 /* Kingfisher-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CCCE1266E30034128BCC89D28A2D5B7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B571C80AE357A186DE2CD29E5818A90A /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3076,17 +3097,20 @@
 		};
 		19B7190FDC806A9B5D6CD16AC697C092 /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4358DB5A76E7FD81622DD178321F4055 /* Build configuration list for PBXNativeTarget "Pods-TokopediaMiniProject-TokopediaMiniProjectTests" */;
+			buildConfigurationList = 60F1245F2855B2EAD25A3C1F5DEDACAD /* Build configuration list for PBXNativeTarget "Pods-TokopediaMiniProject-TokopediaMiniProjectTests" */;
 			buildPhases = (
-				113F5DCD8E899E570B27BE7775F0DC4C /* Headers */,
-				22F384EC9CCF31D6AFBE8CA850483EBF /* Sources */,
-				8A6776111C6D0BC3BC16CEC9C84C0D18 /* Frameworks */,
-				C1606B31978E0B2DE5B6F7B727E1E5BA /* Resources */,
+				7CCCE1266E30034128BCC89D28A2D5B7 /* Headers */,
+				3903C7B78DF59B3BF986BA8DA2B73789 /* Sources */,
+				01F776478F8DB8CC3BAC365732760ADB /* Frameworks */,
+				C8DAE7FA6450B044D5DF1DAED84AD40D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8B70D0BA1735772BE64C64CDF862DB84 /* PBXTargetDependency */,
+				2E719A2AF800F30019D7D74DB9C56919 /* PBXTargetDependency */,
+				FA51305AA6D72F50C552756F8A37E8C5 /* PBXTargetDependency */,
+				A3877E20C033355FB53BA83D42E9F8CB /* PBXTargetDependency */,
+				CA968CF1F33460795C9553D2EF8B6EDA /* PBXTargetDependency */,
 			);
 			name = "Pods-TokopediaMiniProject-TokopediaMiniProjectTests";
 			productName = Pods_TokopediaMiniProject_TokopediaMiniProjectTests;
@@ -3469,7 +3493,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C1606B31978E0B2DE5B6F7B727E1E5BA /* Resources */ = {
+		C8DAE7FA6450B044D5DF1DAED84AD40D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3569,14 +3593,6 @@
 				AA9A632861DC12CE0A5862F7CAD4B008 /* TableViewSectionedDataSource.swift in Sources */,
 				5147EF85E6DB971E6D486F641192FDF5 /* UI+SectionedViewType.swift in Sources */,
 				C05AFD68EDF8F0299468566A93E59275 /* ViewTransition.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22F384EC9CCF31D6AFBE8CA850483EBF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A490D2DADB291AFEB1398EDD4F5F2EE /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3716,6 +3732,14 @@
 				4FC0BE22D1389E78DCDC8515F3C1F124 /* ValueContainer.swift in Sources */,
 				0A4178C93B7F1DF931BF92BC4D971841 /* Vectors.swift in Sources */,
 				1F3D77EAFD74D2CFE5C43D46FD93C6D8 /* VectorsExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3903C7B78DF59B3BF986BA8DA2B73789 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE148606CC1760C54390160439D28BD8 /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4247,6 +4271,12 @@
 			target = 7AD0C6DCDC9CEC8A3C7C10C7FEE07BE6 /* RxCocoa */;
 			targetProxy = F5BFA0F768034CC6B5416B0B30E0BA38 /* PBXContainerItemProxy */;
 		};
+		2E719A2AF800F30019D7D74DB9C56919 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
+			targetProxy = 7C6D2E90D019F790E12D68691004908B /* PBXContainerItemProxy */;
+		};
 		38AFEEC61C576D9BAF53F11A5C4A9E3E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RxSwift;
@@ -4379,12 +4409,6 @@
 			target = 7AD0C6DCDC9CEC8A3C7C10C7FEE07BE6 /* RxCocoa */;
 			targetProxy = 027E5A0322E98F31DA3D5875FFD9FC52 /* PBXContainerItemProxy */;
 		};
-		8B70D0BA1735772BE64C64CDF862DB84 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Alamofire;
-			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
-			targetProxy = D0B6E305FD4EA60FF25169207C419E58 /* PBXContainerItemProxy */;
-		};
 		9C608CB12D8D3F0DFF6E3D32FEAE573A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
@@ -4396,6 +4420,12 @@
 			name = RxSwift;
 			target = EA9EA43B3B503823EE36C60D9C8A865F /* RxSwift */;
 			targetProxy = A5BF4ABCE36E210E49CBF7E24EFD4BC0 /* PBXContainerItemProxy */;
+		};
+		A3877E20C033355FB53BA83D42E9F8CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RxRelay;
+			target = 4622BFEF3DC16E8BD15EEFC30D4D0084 /* RxRelay */;
+			targetProxy = EE888CFA005AD7BCC328E8DB6244670A /* PBXContainerItemProxy */;
 		};
 		A881BA378592F2BB53D233536E4E0151 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4432,6 +4462,12 @@
 			name = IQKeyboardManager;
 			target = FBA456CB50E371584C11231929A0971E /* IQKeyboardManager */;
 			targetProxy = 9E46DC00604B8CDA69795D29DAB9D1D5 /* PBXContainerItemProxy */;
+		};
+		CA968CF1F33460795C9553D2EF8B6EDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RxSwift;
+			target = EA9EA43B3B503823EE36C60D9C8A865F /* RxSwift */;
+			targetProxy = CDBEA4B734BDE16E6028E9F24E542826 /* PBXContainerItemProxy */;
 		};
 		CAE3BB231810A41CE03917690AD3B6F7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4498,6 +4534,12 @@
 			name = IQKeyboardManager;
 			target = FBA456CB50E371584C11231929A0971E /* IQKeyboardManager */;
 			targetProxy = E70DFFA319DAE43379F72EF6085245A7 /* PBXContainerItemProxy */;
+		};
+		FA51305AA6D72F50C552756F8A37E8C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RxCocoa;
+			target = 7AD0C6DCDC9CEC8A3C7C10C7FEE07BE6 /* RxCocoa */;
+			targetProxy = A7453BF70720FD5144F311CD07B34C4B /* PBXContainerItemProxy */;
 		};
 		FBB30F2CD3F3D322243EAF480BB871D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4607,43 +4649,6 @@
 			};
 			name = Debug;
 		};
-		13E73946BDB1D3A216BF2BAE50CF3497 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE7B460FB6E005E4AF5682D61C00F928 /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TokopediaMiniProject-TokopediaMiniProjectTests/Pods-TokopediaMiniProject-TokopediaMiniProjectTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TokopediaMiniProject-TokopediaMiniProjectTests/Pods-TokopediaMiniProject-TokopediaMiniProjectTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		1A1C5E312C0F1C77E1462390CCC117A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 445722B7DF55775E6FF5BE8B3D501FCE /* Pods-NetworkInfrastructure-NetworkInfrastructureTests.release.xcconfig */;
@@ -4717,9 +4722,9 @@
 			};
 			name = Release;
 		};
-		267E8CB8370C24A7A151FF50B85770C8 /* Release */ = {
+		276ABB45AE821214F32B6E590FD3CB4D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F90257C8FDC537F6E5EC5916EEAFD83A /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests.release.xcconfig */;
+			baseConfigurationReference = DE7B460FB6E005E4AF5682D61C00F928 /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -4749,11 +4754,10 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		2B00BFC57038E9392069B79F37EFC659 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -5502,6 +5506,44 @@
 			};
 			name = Debug;
 		};
+		B6FB196C67D068BFEE5B2D8B300CECED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F90257C8FDC537F6E5EC5916EEAFD83A /* Pods-TokopediaMiniProject-TokopediaMiniProjectTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TokopediaMiniProject-TokopediaMiniProjectTests/Pods-TokopediaMiniProject-TokopediaMiniProjectTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TokopediaMiniProject-TokopediaMiniProjectTests/Pods-TokopediaMiniProject-TokopediaMiniProjectTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		BC176CCC28BDC2278EE6CD1BC0251C58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 169F50801A8BE952AC4A948A227D0F32 /* IQKeyboardManager.release.xcconfig */;
@@ -5902,15 +5944,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4358DB5A76E7FD81622DD178321F4055 /* Build configuration list for PBXNativeTarget "Pods-TokopediaMiniProject-TokopediaMiniProjectTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				13E73946BDB1D3A216BF2BAE50CF3497 /* Debug */,
-				267E8CB8370C24A7A151FF50B85770C8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		468D926BA08FE82BE611371F2784EEC3 /* Build configuration list for PBXNativeTarget "IQKeyboardManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -5925,6 +5958,15 @@
 			buildConfigurations = (
 				94CA9DF48CE575FECE47DDD8786D50E7 /* Debug */,
 				072CF24DD597B28B1EC6485A97C6DC75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60F1245F2855B2EAD25A3C1F5DEDACAD /* Build configuration list for PBXNativeTarget "Pods-TokopediaMiniProject-TokopediaMiniProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				276ABB45AE821214F32B6E590FD3CB4D /* Debug */,
+				B6FB196C67D068BFEE5B2D8B300CECED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

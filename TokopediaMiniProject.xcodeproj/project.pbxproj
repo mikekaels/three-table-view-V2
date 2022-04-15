@@ -87,6 +87,12 @@
 		BDB5EF502805FAFA007B724E /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF4F2805FAFA007B724E /* CategoryCellViewModel.swift */; };
 		BDB5EF532805FBC6007B724E /* DisposableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF522805FBC6007B724E /* DisposableViewModel.swift */; };
 		BDB5EF552805FC36007B724E /* DisposableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB5EF542805FC36007B724E /* DisposableTableViewCell.swift */; };
+		BDEB2F4C2809FF4200054522 /* CategoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2F4B2809FF4200054522 /* CategoryUseCase.swift */; };
+		BDEB2F4F280A017C00054522 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2F4E280A017C00054522 /* HomeRepository.swift */; };
+		BDEB2F5A280A0FF200054522 /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2F59280A0FF200054522 /* HomeViewModelTest.swift */; };
+		BDEB2F5D280A10EB00054522 /* MockHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2F5C280A10EB00054522 /* MockHomeData.swift */; };
+		BDEB2F60280A150A00054522 /* CategoryViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2F5F280A150A00054522 /* CategoryViewModelTest.swift */; };
+		BDEB2F62280A159400054522 /* MockCategoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2F61280A159400054522 /* MockCategoryUseCase.swift */; };
 		F0B5470AEDB0079CE5379AF2 /* Pods_NetworkInfrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AB7855ABC3D7C2D31C9250 /* Pods_NetworkInfrastructure.framework */; };
 /* End PBXBuildFile section */
 
@@ -306,6 +312,12 @@
 		BDB5EF4F2805FAFA007B724E /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
 		BDB5EF522805FBC6007B724E /* DisposableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableViewModel.swift; sourceTree = "<group>"; };
 		BDB5EF542805FC36007B724E /* DisposableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableTableViewCell.swift; sourceTree = "<group>"; };
+		BDEB2F4B2809FF4200054522 /* CategoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUseCase.swift; sourceTree = "<group>"; };
+		BDEB2F4E280A017C00054522 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		BDEB2F59280A0FF200054522 /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
+		BDEB2F5C280A10EB00054522 /* MockHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeData.swift; sourceTree = "<group>"; };
+		BDEB2F5F280A150A00054522 /* CategoryViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelTest.swift; sourceTree = "<group>"; };
+		BDEB2F61280A159400054522 /* MockCategoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoryUseCase.swift; sourceTree = "<group>"; };
 		C219C311F2C0009C3B3A1382 /* Pods-CommonUI-CommonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonUI-CommonUITests.release.xcconfig"; path = "Target Support Files/Pods-CommonUI-CommonUITests/Pods-CommonUI-CommonUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C97A395230AF406406792543 /* Pods-TokopediaMiniProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokopediaMiniProject.debug.xcconfig"; path = "Target Support Files/Pods-TokopediaMiniProject/Pods-TokopediaMiniProject.debug.xcconfig"; sourceTree = "<group>"; };
 		D45934634D02249CE65352D4 /* Pods-TokopediaMiniProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokopediaMiniProject.release.xcconfig"; path = "Target Support Files/Pods-TokopediaMiniProject/Pods-TokopediaMiniProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -465,6 +477,8 @@
 		81ED4453255826BE005EA87F /* TokopediaMiniProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				BDEB2F5E280A14F600054522 /* CategoryTest */,
+				BDEB2F5B280A103E00054522 /* HomeTest */,
 				81ED4454255826BE005EA87F /* TokopediaMiniProjectTests.swift */,
 				81ED4456255826BF005EA87F /* Info.plist */,
 			);
@@ -521,10 +535,10 @@
 				BDAD2A2228031D5700562118 /* NSObject + Extension.swift */,
 				BDAD29EB2802102700562118 /* UIColor + Extension.swift */,
 				BDAD29ED2802103F00562118 /* ColorType.swift */,
+				BD3FD7752808018C003E0DDC /* UserDefaultManager.swift */,
 				BDAD29EF2802105C00562118 /* Alertable.swift */,
 				BDAD29FD2802167A00562118 /* Configurable.swift */,
 				BD8B2B1228074EFD006980B8 /* AttributedString.swift */,
-				BD3FD7752808018C003E0DDC /* UserDefaultManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -662,6 +676,7 @@
 			isa = PBXGroup;
 			children = (
 				BD470E6928037B7900A40985 /* CategoryRepository.swift */,
+				BDEB2F4E280A017C00054522 /* HomeRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -679,6 +694,7 @@
 			isa = PBXGroup;
 			children = (
 				BD470E6B28037E6600A40985 /* HomeUseCase.swift */,
+				BDEB2F4B2809FF4200054522 /* CategoryUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -754,6 +770,24 @@
 				BD3A8FE82808CBC9007D33B5 /* CategoryItemCollectionViewModel.swift */,
 			);
 			path = ItemCollectionCell;
+			sourceTree = "<group>";
+		};
+		BDEB2F5B280A103E00054522 /* HomeTest */ = {
+			isa = PBXGroup;
+			children = (
+				BDEB2F59280A0FF200054522 /* HomeViewModelTest.swift */,
+				BDEB2F5C280A10EB00054522 /* MockHomeData.swift */,
+			);
+			path = HomeTest;
+			sourceTree = "<group>";
+		};
+		BDEB2F5E280A14F600054522 /* CategoryTest */ = {
+			isa = PBXGroup;
+			children = (
+				BDEB2F5F280A150A00054522 /* CategoryViewModelTest.swift */,
+				BDEB2F61280A159400054522 /* MockCategoryUseCase.swift */,
+			);
+			path = CategoryTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1379,6 +1413,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDEB2F60280A150A00054522 /* CategoryViewModelTest.swift in Sources */,
+				BDEB2F62280A159400054522 /* MockCategoryUseCase.swift in Sources */,
+				BDEB2F5A280A0FF200054522 /* HomeViewModelTest.swift in Sources */,
+				BDEB2F5D280A10EB00054522 /* MockHomeData.swift in Sources */,
 				81ED4455255826BE005EA87F /* TokopediaMiniProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1440,8 +1478,10 @@
 				BDB5EF432805D1BC007B724E /* TreeNode.swift in Sources */,
 				BDAD29FE2802167A00562118 /* Configurable.swift in Sources */,
 				BDAD2A2A2803258800562118 /* CategoryItem.swift in Sources */,
+				BDEB2F4C2809FF4200054522 /* CategoryUseCase.swift in Sources */,
 				BD3FD7762808018C003E0DDC /* UserDefaultManager.swift in Sources */,
 				BD470E6A28037B7900A40985 /* CategoryRepository.swift in Sources */,
+				BDEB2F4F280A017C00054522 /* HomeRepository.swift in Sources */,
 				BDAD29EE2802103F00562118 /* ColorType.swift in Sources */,
 				BD470E6C28037E6600A40985 /* HomeUseCase.swift in Sources */,
 				BD470E6828037B4100A40985 /* CategoryDataRepository.swift in Sources */,

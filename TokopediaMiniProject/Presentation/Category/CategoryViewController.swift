@@ -43,7 +43,7 @@ class CategoryViewController: ViewController {
         self.view = categoryView
     }
     
-    internal var viewModel: CategoryViewModel!
+    private var viewModel: CategoryViewModel?
     private var categoryView: CategoryView?
     
     private var dataSource: RxTableViewSectionedAnimatedDataSource<CategoryListSectionModel>!
@@ -104,7 +104,8 @@ class CategoryViewController: ViewController {
 extension CategoryViewController {
     // Bind Cell to ViewModel
     private var configureCell: RxTableViewSectionedAnimatedDataSource<CategoryListSectionModel>.ConfigureCell {
-        return { _, tableView, indexPath, item in
+        return { [weak self] _, tableView, indexPath, item in
+            guard let `self` = self else { return UITableViewCell()}
             if item.tree < 3 {
                 var cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifier, for: indexPath) as! CategoryTableViewCell
                 
@@ -113,7 +114,7 @@ extension CategoryViewController {
                 return cell
             } else {
                 var cell = tableView.dequeueReusableCell(withIdentifier: CategoryLvlThreeViewCell.identifier, for: indexPath) as! CategoryLvlThreeViewCell
-                cell.bind(to: CategoryLvlThreeViewModel(categories: self.viewModel.categoriesLvThree))
+                cell.bind(to: CategoryLvlThreeViewModel(categories: self.viewModel!.categoriesLvThree))
                 cell.delegate = self
                 return cell
             }

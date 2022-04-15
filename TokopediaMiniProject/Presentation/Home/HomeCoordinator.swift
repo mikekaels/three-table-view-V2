@@ -23,7 +23,8 @@ class HomeCoordinatorImplement: HomeCoordinator {
     func start() {
         let vc = HomeViewController()
         let view = HomeView()
-        let viewModel = HomeViewModelPresentation(coordinator: self)
+        let useCase = HomeViewDomainUseCase()
+        let viewModel = HomeViewModelPresentation(useCase: useCase, coordinator: self)
         
         vc.inject(viewModel: viewModel, homeView: view)
         vc.modalPresentationStyle = .fullScreen

@@ -48,8 +48,8 @@ target 'TokopediaMiniProject' do
   alamofire
 
   target 'TokopediaMiniProjectTests' do
-   # inherit! :search_paths
-    # Pods for testing
+    rx_swift
+    rx_cocoa
   end
 
 end

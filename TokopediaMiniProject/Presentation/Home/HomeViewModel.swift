@@ -11,21 +11,23 @@ import RxCocoa
 
 class HomeViewModelPresentation: DisposableViewModel, HomeViewModel {
     
-    
-    
     private let coordinator: HomeCoordinator
+    private let useCase: HomeViewUseCase
    
-    init(coordinator: HomeCoordinator) {
+    init(useCase: HomeViewUseCase, coordinator: HomeCoordinator) {
         self.coordinator = coordinator
+        self.useCase = useCase
     }
     
-    let _selectedCategory = BehaviorRelay<String>(value: "Hello")
+    let _selectedCategory = BehaviorRelay<String>(value: "")
+    
     var selectedCategory: Driver<String> {
         return _selectedCategory.asDriver()
     }
     
     func getCategory() {
-        self._selectedCategory.accept(UserDefaultsManager.shared.getCategory())
+        let category = useCase.getCategory()
+        self._selectedCategory.accept(category)
     }
     
     func goToCategory(delegate: CategoryViewDelegate) {
@@ -34,7 +36,7 @@ class HomeViewModelPresentation: DisposableViewModel, HomeViewModel {
     
     func saveCategory(_ value: String) {
         self._selectedCategory.accept(value)
-        UserDefaultsManager.shared.saveCategory(value: value)
+        useCase.saveCategory(value: value)
     }
     
 }

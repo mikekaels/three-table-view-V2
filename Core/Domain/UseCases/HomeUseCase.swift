@@ -10,26 +10,22 @@ import RxSwift
 import NetworkInfrastructure
 
 public protocol HomeViewUseCase {
-    func getCategories() -> Observable<[TreeNode]>
-    func getLocalCategories() -> Observable<[TreeNode]>
+    func getCategory() -> String
+    func saveCategory(value: String)
 }
 
 public class HomeViewDomainUseCase {
-    private let repository: CategoryRepository
-    
-    public init(repository: CategoryRepository) {
-        self.repository = repository
-    }
+    public init() {}
 }
 
 extension HomeViewDomainUseCase: HomeViewUseCase {
-    public func getLocalCategories() -> Observable<[TreeNode]> {
-        let data = repository.fetchLocalCategories()
-        return data.map { $0.toDomain() }
+    public func getCategory() -> String {
+        return UserDefaultsManager.shared.getCategory()
     }
     
-    public func getCategories() -> Observable<[TreeNode]> {
-        let data = repository.fetchCategories()
-        return data.map { $0.toDomain() }
+    public func saveCategory(value: String) {
+        UserDefaultsManager.shared.saveCategory(value: value)
     }
+    
+
 }
