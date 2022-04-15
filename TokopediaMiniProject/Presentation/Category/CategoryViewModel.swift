@@ -72,14 +72,35 @@ extension CategoryViewModelPresentation {
             if node.isLeaf { return node }
             
             node.isOpen = !node.isOpen
+            print("👉 \(node.name) isOpen: \(node.isOpen)")
+            
+            // Find the category that still open
+            let stillOpen = categories.filter {
+                $0.tree >= node.tree &&
+                $0.index != node.index &&
+                $0.isOpen == true
+            }
+            print("👉 STILL OPEN: ",stillOpen)
+            // Collapse the other category that still open
+//            if let stillOpenYo = stillOpen {
+//                categories[stillOpenIndex].isOpen = false
+//                categories.remove(at: stillOpenIndex + 1)
+//            }
+            
+            stillOpen.forEach { item in
+                if let stillOpenIndex = categories.firstIndex(of: item) {
+                    categories[stillOpenIndex].isOpen = false
+                    categories.remove(at: stillOpenIndex + 1)
+                }
+            }
+            
             
             let subNodes = node.needsDisplayNodes
             
             let insertIndex = categories.firstIndex(of: node)! + 1
             
-            if node.tree == 2 {
+            if node.tree == 2 { // Level 3 on Collection View
                 if node.isOpen && self.onSearch == true {
-                    
                     categories = categories.filter { $0.parentId != node.index }
                     categories.insert(contentsOf: [TreeNode()], at: insertIndex)
                     self._categoriesLvThree.accept(subNodes)
@@ -91,10 +112,8 @@ extension CategoryViewModelPresentation {
                     self._categoriesLvThree.accept(subNodes)
                     
                 } else {
-                    
                     categories.remove(at: insertIndex)
                     self._categoriesLvThree.accept([])
-                    
                 }
             } else {
                 
@@ -107,7 +126,6 @@ extension CategoryViewModelPresentation {
                     categories.insert(contentsOf: subNodes, at: insertIndex)
                     
                 } else {
-                    
                     for subNode in subNodes {
                         guard let index = categories.firstIndex(of: subNode) else { continue }
                         categories.remove(at: index)
