@@ -50,9 +50,9 @@ class CategoryViewController: ViewController {
     
     private func configureDataSource() {
         dataSource = RxTableViewSectionedAnimatedDataSource<CategoryListSectionModel>(
-            animationConfiguration: AnimationConfiguration(insertAnimation: .top,
+            animationConfiguration: AnimationConfiguration(insertAnimation: .none,
                                                            reloadAnimation: .automatic,
-                                                           deleteAnimation: .bottom),
+                                                           deleteAnimation: .none),
             configureCell: configureCell
         )
     }

@@ -62,7 +62,7 @@ extension CategoryViewModelPresentation {
                            tableView: UITableView) -> Driver<TreeNode> {
        
         return selection.withLatestFrom(categories) { [weak self] selectedItem, allItems in
-            
+            print("SELECTED ITEM: ",selectedItem.name)
             guard let `self` = self else { return TreeNode() }
 
             var categories = allItems
@@ -74,7 +74,7 @@ extension CategoryViewModelPresentation {
             node.isOpen = !node.isOpen
             
             // Collapse the other category that still open
-            categories = self.collapseOtherOpened(categories: categories, node: node)
+            categories = self.collapseOther(categories: categories, node: node)
             
             // Expand or Collapse the category
             categories = self.collapseOrExpand(categories: categories, node: node)
@@ -84,7 +84,7 @@ extension CategoryViewModelPresentation {
         }
     }
     
-    func collapseOtherOpened(categories: [TreeNode], node: TreeNode) -> [TreeNode] {
+    func collapseOther(categories: [TreeNode], node: TreeNode) -> [TreeNode] {
         var categories = categories
         
         categories.filter { // find the specific item with:
@@ -115,32 +115,34 @@ extension CategoryViewModelPresentation {
         
         let subNodes = node.needsDisplayNodes
         
-        let insertIndex = categories.firstIndex(of: node)! + 1
+        guard let insertIndex = categories.firstIndex(of: node) else {
+            return []
+        }
         
         if node.tree == 2 { // Level 3 on Collection View
             if node.isOpen && self.onSearch == true {
                 categories = categories.filter { $0.parentId != node.index }
-                categories.insert(contentsOf: [TreeNode()], at: insertIndex)
+                categories.insert(contentsOf: [TreeNode()], at: insertIndex  + 1)
                 self._categoriesLvThree.accept(subNodes)
                 
             } else if node.isOpen && self.onSearch == false {
                 
                 categories = categories.filter { $0.parentId != node.index }
-                categories.insert(contentsOf: [TreeNode()], at: insertIndex)
+                categories.insert(contentsOf: [TreeNode()], at: insertIndex  + 1)
                 self._categoriesLvThree.accept(subNodes)
                 
             } else {
-                categories.remove(at: insertIndex)
+                categories.remove(at: insertIndex + 1)
                 self._categoriesLvThree.accept([])
             }
         } else {
             if node.isOpen && self.onSearch == true {
                 
                 categories = categories.filter { $0.parentId != node.index }
-                categories.insert(contentsOf: subNodes, at: insertIndex)
+                categories.insert(contentsOf: subNodes, at: insertIndex  + 1)
                 
             } else if node.isOpen && self.onSearch == false {
-                categories.insert(contentsOf: subNodes, at: insertIndex)
+                categories.insert(contentsOf: subNodes, at: insertIndex  + 1)
                 
             } else {
                 for subNode in subNodes {
