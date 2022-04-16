@@ -12,7 +12,7 @@ import CommonUI
 import Core
 
 protocol CategoryViewDelegate: AnyObject {
-    func categoryTapped(value: String)
+    func categoryTapped(value: DefaultItem)
 }
 
 class CategoryViewController: ViewController {
@@ -123,7 +123,7 @@ extension CategoryViewController {
 }
 
 extension CategoryViewController: CategoryLvlThreeViewCellDelegate {
-    func didTappedCategory(value: String) {
+    func didTappedCategory(value: DefaultItem) {
         self.delegate?.categoryTapped(value: value)
         self.dismiss(animated: true, completion: nil)
     }

@@ -10,8 +10,8 @@ import RxSwift
 import NetworkInfrastructure
 
 public protocol HomeViewUseCase {
-    func getCategory() -> String
-    func saveCategory(value: String)
+    func getDefault() -> DefaultItem
+    func saveDefault(defaultItem: DefaultItem)
 }
 
 public class HomeViewDomainUseCase {
@@ -19,12 +19,16 @@ public class HomeViewDomainUseCase {
 }
 
 extension HomeViewDomainUseCase: HomeViewUseCase {
-    public func getCategory() -> String {
-        return UserDefaultsManager.shared.getCategory()
+    public func getDefault() -> DefaultItem {
+        var item = DefaultItem()
+        item.category = UserDefaultsManager.shared.getDefault(type: .category)
+        item.imageURL = UserDefaultsManager.shared.getDefault(type: .image)
+        return item
     }
     
-    public func saveCategory(value: String) {
-        UserDefaultsManager.shared.saveCategory(value: value)
+    public func saveDefault(defaultItem: DefaultItem) {
+        UserDefaultsManager.shared.saveDefault(value: defaultItem.category, type: .category)
+        UserDefaultsManager.shared.saveDefault(value: defaultItem.imageURL, type: .image)
     }
     
 

@@ -11,11 +11,16 @@ public class UserDefaultsManager {
 
     public static let shared = UserDefaultsManager()
 
-    public func saveCategory(value: String) {
-        UserDefaults.standard.set(value, forKey: "category")
+    public func saveDefault(value: String, type: defaultType) {
+        UserDefaults.standard.set(value, forKey: type.rawValue)
     }
     
-    public func getCategory() -> String {
-        return UserDefaults.standard.string(forKey: "category") ?? ""
+    public func getDefault(type: defaultType) -> String {
+        return UserDefaults.standard.string(forKey: type.rawValue) ?? ""
+    }
+    
+    public enum defaultType: String {
+        case category = "category"
+        case image = "image"
     }
 }

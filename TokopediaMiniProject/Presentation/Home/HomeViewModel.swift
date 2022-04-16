@@ -20,23 +20,31 @@ class HomeViewModelPresentation: DisposableViewModel, HomeViewModel {
     }
     
     let _selectedCategory = BehaviorRelay<String>(value: "")
+    let _selectedImageURL = BehaviorRelay<String>(value: "")
+    
     
     var selectedCategory: Driver<String> {
         return _selectedCategory.asDriver()
     }
     
-    func getCategory() {
-        let category = useCase.getCategory()
-        self._selectedCategory.accept(category)
+    var selectedImage: Driver<String> {
+        return _selectedImageURL.asDriver()
+    }
+    
+    func getDefault() {
+        let category = useCase.getDefault()
+        self._selectedImageURL.accept(category.imageURL)
+        self._selectedCategory.accept(category.category)
     }
     
     func goToCategory(delegate: CategoryViewDelegate) {
         coordinator.toCategory(delegate: delegate)
     }
     
-    func saveCategory(_ value: String) {
-        self._selectedCategory.accept(value)
-        useCase.saveCategory(value: value)
+    func saveDefault(_ value: DefaultItem) {
+        self._selectedImageURL.accept(value.imageURL)
+        self._selectedCategory.accept(value.category)
+        useCase.saveDefault(defaultItem: value)
     }
     
 }
@@ -44,12 +52,13 @@ class HomeViewModelPresentation: DisposableViewModel, HomeViewModel {
 
 protocol HomeViewModelInput {
     func goToCategory(delegate: CategoryViewDelegate)
-    func getCategory()
-    func saveCategory(_ value: String)
+    func getDefault()
+    func saveDefault(_ value: DefaultItem)
 }
 
 protocol HomeViewModelOutput {
     var selectedCategory: Driver<String> { get }
+    var selectedImage: Driver<String> { get }
 }
 
 protocol HomeViewModel: HomeViewModelInput, HomeViewModelOutput {}

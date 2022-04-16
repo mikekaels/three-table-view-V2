@@ -13,7 +13,7 @@ import RxSwift
 import RxCocoa
 
 protocol CategoryLvlThreeViewCellDelegate: AnyObject {
-    func didTappedCategory(value: String)
+    func didTappedCategory(value: DefaultItem)
 }
 
 class CategoryLvlThreeViewCell: DisposableTableViewCell {
@@ -74,8 +74,12 @@ extension CategoryLvlThreeViewCell: BindableType {
         collectionView.rx.modelSelected(TreeNode.self).asDriver()
             .drive(onNext: { [weak self] node in
                 guard let `self` = self else { return }
-
-                self.delegate?.didTappedCategory(value: node.name)
+                
+                var item = DefaultItem()
+                item.imageURL = node.imageURL
+                item.category = node.name
+                
+                self.delegate?.didTappedCategory(value: item)
             })
             .disposed(by: disposeBag)
     }

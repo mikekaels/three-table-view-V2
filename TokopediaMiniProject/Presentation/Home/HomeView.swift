@@ -8,6 +8,7 @@
 import UIKit
 import Core
 import CommonUI
+import Kingfisher
 
 protocol HomeViewDelegate: AnyObject {
     
@@ -21,6 +22,16 @@ class HomeView: ScrollableView {
         .configure { v in
             v.text = "You have no selected category"
             v.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+    
+    let imgItem = UIImageView()
+        .configure { v in
+            v.contentMode = .scaleToFill
+            v.clipsToBounds = true
+            let urls = URL(string: "https://ecs7.tokopedia.net/img/attachment/2019/7/8/3948/3948_852c3060-505d-4a02-9db5-cf9099b70b2d.png")
+            v.kf.indicatorType = .activity
+            v.kf.setImage(with: urls)
             v.translatesAutoresizingMaskIntoConstraints = false
         }
     
@@ -44,15 +55,23 @@ class HomeView: ScrollableView {
     override func setUpUI() {
         super.setUpUI()
         
-        self.addSubview(lblYouHaveNoSelected)
-        self.addSubview(lblSelected)
-        self.addSubview(btnSelect)
+        [
+            lblYouHaveNoSelected,
+            imgItem,
+            lblSelected,
+            btnSelect
+        ].forEach { addSubview($0)}
         
         NSLayoutConstraint.activate([
             lblYouHaveNoSelected.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 100),
             lblYouHaveNoSelected.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
-            lblSelected.topAnchor.constraint(equalTo: self.lblYouHaveNoSelected.bottomAnchor, constant: 30),
+            imgItem.heightAnchor.constraint(equalToConstant: 200),
+            imgItem.widthAnchor.constraint(equalToConstant: 200),
+            imgItem.topAnchor.constraint(equalTo: lblYouHaveNoSelected.bottomAnchor, constant: 30),
+            imgItem.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            lblSelected.topAnchor.constraint(equalTo: self.imgItem.bottomAnchor, constant: 30),
             lblSelected.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             btnSelect.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor, constant: -70),

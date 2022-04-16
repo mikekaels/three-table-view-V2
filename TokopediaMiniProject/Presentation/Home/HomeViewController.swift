@@ -34,7 +34,7 @@ class HomeViewController: ViewController {
         super.viewDidLoad()
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationItem.title = "Home"
-        self.viewModel?.getCategory()
+        self.viewModel?.getDefault()
     }
     
     override func bindViewModel() {
@@ -56,13 +56,20 @@ class HomeViewController: ViewController {
             })
             .drive(homeView.lblSelected.rx.text)
             .disposed(by: disposeBag)
+        
+        viewModel.selectedImage
+            .map({ text in
+                homeView.imgItem.kf.setImage(with: URL(string: text))
+            })
+            .drive()
+            .disposed(by: disposeBag)
     }
     
 }
 
 extension HomeViewController: HomeViewDelegate, CategoryViewDelegate {
-    func categoryTapped(value: String) {
-        viewModel?.saveCategory(value)
+    func categoryTapped(value: DefaultItem) {
+        viewModel?.saveDefault(value)
     }
 }
 
