@@ -35,42 +35,59 @@ class HomeViewModelTests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func test_success_save_category() {
+    func test_success_save_default() {
         // given
-        let category = "computer"
+        var category = DefaultItem()
+        category.category = "car"
+        category.imageURL = "car"
         
         // when
-        sut.saveCategory(category)
+        sut.saveDefault(category)
         
         // then
         sut.selectedCategory
             .drive(onNext: { result in
-                XCTAssertEqual(result, category)
+                XCTAssertEqual(result, category.category)
             })
             .disposed(by: disposeBag)
+        
+        sut.selectedImage
+            .drive(onNext: { result in
+                XCTAssertEqual(result, category.imageURL)
+        })
+        .disposed(by: disposeBag)
     }
     
-    func test_failed_save_category() {
+    func test_failed_save_default() {
         // given
-        let category = "car"
+        var category = DefaultItem()
+        category.category = ""
+        category.imageURL = ""
         
         // when
-        sut.saveCategory(category)
+        sut.saveDefault(category)
         
         // then
-        sut.getCategory()
+        sut.getDefault()
+        
         sut.selectedCategory
+            .drive(onNext: { result in
+                XCTAssertNotEqual(result, "bottle")
+            })
+            .disposed(by: disposeBag)
+        
+        sut.selectedImage
             .drive(onNext: { result in
                 XCTAssertNotEqual(result, "bottle")
             })
             .disposed(by: disposeBag)
     }
     
-    func test_success_get_category() {
+    func test_success_get_default() {
         // given
         
         // when
-        sut.getCategory()
+        sut.getDefault()
         
         // then
         sut.selectedCategory
@@ -78,17 +95,35 @@ class HomeViewModelTests: XCTestCase {
                 XCTAssertNotNil(result)
             })
             .disposed(by: disposeBag)
+        
+        // then
+        sut.selectedImage
+            .drive(onNext: { result in
+                XCTAssertNotNil(result)
+            })
+            .disposed(by: disposeBag)
     
     }
     
-    func test_failed_get_category() {
+    func test_success_get_default_but() {
         // given
-        sut.saveCategory("")
+        var category = DefaultItem()
+        category.category = "smartphone"
+        category.imageURL = "smartphone"
+        
         // when
-        sut.getCategory()
+        sut.saveDefault(category)
+        sut.getDefault()
         
         // then
         sut.selectedCategory
+            .drive(onNext: { result in
+                XCTAssertEqual(result, "")
+            })
+            .disposed(by: disposeBag)
+        
+        // then
+        sut.selectedImage
             .drive(onNext: { result in
                 XCTAssertEqual(result, "")
             })

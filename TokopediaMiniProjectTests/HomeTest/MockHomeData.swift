@@ -13,39 +13,47 @@ import RxCocoa
 @testable import TokopediaMiniProject
 
 class MockHomeDomainUseCase: HomeViewUseCase {
-    var userDefault = ""
+
+    var userDefault = DefaultItem()
     
-    func getCategory() -> String {
-        let data = userDefault
-        return data
+    func getDefault() -> DefaultItem {
+        userDefault.imageURL = ""
+        userDefault.category = ""
+        return userDefault
     }
     
-    func saveCategory(value: String) {
-        self.userDefault = value
+    func saveDefault(defaultItem: DefaultItem) {
+        self.userDefault = defaultItem
     }
 }
 
 class MockHomeViewModelInput: HomeViewModelInput {
+    
+
     private let useCase = HomeViewDomainUseCase()
     
     func goToCategory(delegate: CategoryViewDelegate) {
         
     }
     
-    func getCategory() {
-        useCase.getCategory()
+    func getDefault() {
+        useCase.getDefault()
     }
     
-    func saveCategory(_ value: String) {
-        useCase.saveCategory(value: value)
+    func saveDefault(_ value: DefaultItem) {
+        useCase.saveDefault(defaultItem: value)
     }
+    
 }
 
 
 class MockHomeViewModelOutput: HomeViewModelOutput {
+    var selectedImage: Driver<String>
+    
     var selectedCategory: Driver<String>
     
     init() {
         self.selectedCategory = BehaviorRelay<String>(value: "computer").asDriver()
+        self.selectedImage = BehaviorRelay<String>(value: "computer").asDriver()
     }
 }
