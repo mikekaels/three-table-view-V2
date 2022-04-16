@@ -93,6 +93,7 @@
 		BDEB2F5D280A10EB00054522 /* MockHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2F5C280A10EB00054522 /* MockHomeData.swift */; };
 		BDEB2F60280A150A00054522 /* CategoryViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2F5F280A150A00054522 /* CategoryViewModelTest.swift */; };
 		BDEB2F62280A159400054522 /* MockCategoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2F61280A159400054522 /* MockCategoryUseCase.swift */; };
+		BDEB2F66280AF51E00054522 /* UIPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2F65280AF51E00054522 /* UIPrimaryButton.swift */; };
 		F0B5470AEDB0079CE5379AF2 /* Pods_NetworkInfrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AB7855ABC3D7C2D31C9250 /* Pods_NetworkInfrastructure.framework */; };
 /* End PBXBuildFile section */
 
@@ -318,6 +319,7 @@
 		BDEB2F5C280A10EB00054522 /* MockHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeData.swift; sourceTree = "<group>"; };
 		BDEB2F5F280A150A00054522 /* CategoryViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelTest.swift; sourceTree = "<group>"; };
 		BDEB2F61280A159400054522 /* MockCategoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoryUseCase.swift; sourceTree = "<group>"; };
+		BDEB2F65280AF51E00054522 /* UIPrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPrimaryButton.swift; sourceTree = "<group>"; };
 		C219C311F2C0009C3B3A1382 /* Pods-CommonUI-CommonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonUI-CommonUITests.release.xcconfig"; path = "Target Support Files/Pods-CommonUI-CommonUITests/Pods-CommonUI-CommonUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C97A395230AF406406792543 /* Pods-TokopediaMiniProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokopediaMiniProject.debug.xcconfig"; path = "Target Support Files/Pods-TokopediaMiniProject/Pods-TokopediaMiniProject.debug.xcconfig"; sourceTree = "<group>"; };
 		D45934634D02249CE65352D4 /* Pods-TokopediaMiniProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokopediaMiniProject.release.xcconfig"; path = "Target Support Files/Pods-TokopediaMiniProject/Pods-TokopediaMiniProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 				BDAD29FB2802110700562118 /* UILoadingView.swift */,
 				BDAD2A022802173900562118 /* UICustomTableView.swift */,
 				BD8B2B1428075DF0006980B8 /* UIView + Extension.swift */,
+				BDEB2F65280AF51E00054522 /* UIPrimaryButton.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -1451,6 +1454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDEB2F66280AF51E00054522 /* UIPrimaryButton.swift in Sources */,
 				BDAD29A228020BA500562118 /* ViewController.swift in Sources */,
 				BDAD29A428020D1D00562118 /* ScrollableView.swift in Sources */,
 				BDAD2A032802173900562118 /* UICustomTableView.swift in Sources */,

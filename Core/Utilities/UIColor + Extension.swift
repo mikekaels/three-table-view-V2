@@ -12,6 +12,7 @@ public extension UIColor {
     static let primary = UIColor(named: ColorType.primary)
     static let secondary = UIColor(named: ColorType.secondary)
     static let background = UIColor(named: ColorType.background)
-    static let button = UIColor(named: ColorType.button)
+    static let buttonTitle = UIColor(named: ColorType.buttonTitle)
+    static let tokopediaPrimary = UIColor(named: ColorType.tokopediaPrimaryColor)
 }
 

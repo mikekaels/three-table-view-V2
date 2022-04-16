@@ -16,8 +16,8 @@ class HomeViewModelTests: XCTestCase {
     
     private var sut: HomeViewModel!
     private var disposeBag: DisposeBag!
-//    private var input: MockHomeViewModelInput!
-//    private var output: MockHomeViewModelOutput!
+    private var input: MockHomeViewModelInput!
+    private var output: MockHomeViewModelOutput!
     
     
     override func setUpWithError() throws {
@@ -25,8 +25,8 @@ class HomeViewModelTests: XCTestCase {
         let useCase = MockHomeDomainUseCase()
         sut = HomeViewModelPresentation(useCase: useCase, coordinator: coordinator)
         disposeBag = DisposeBag()
-//        output = MockHomeViewModelOutput()
-//        input = MockHomeViewModelInput()
+        output = MockHomeViewModelOutput()
+        input = MockHomeViewModelInput()
         try super.setUpWithError()
     }
     

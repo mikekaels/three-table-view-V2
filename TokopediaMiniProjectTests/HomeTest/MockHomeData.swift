@@ -25,27 +25,27 @@ class MockHomeDomainUseCase: HomeViewUseCase {
     }
 }
 
-//class MockHomeViewModelInput: HomeViewModelInput {
-//    private let useCase = HomeViewDomainUseCase()
-//    
-//    func goToCategory(delegate: CategoryViewDelegate) {
-//        
-//    }
-//    
-//    func getCategory() {
-//        useCase.getCategory()
-//    }
-//    
-//    func saveCategory(_ value: String) {
-//        useCase.saveCategory(value: value)
-//    }
-//}
+class MockHomeViewModelInput: HomeViewModelInput {
+    private let useCase = HomeViewDomainUseCase()
+    
+    func goToCategory(delegate: CategoryViewDelegate) {
+        
+    }
+    
+    func getCategory() {
+        useCase.getCategory()
+    }
+    
+    func saveCategory(_ value: String) {
+        useCase.saveCategory(value: value)
+    }
+}
 
 
-//class MockHomeViewModelOutput: HomeViewModelOutput {
-//    var selectedCategory: Driver<String>
-//    
-//    init() {
-//        self.selectedCategory = BehaviorRelay<String>(value: "computer").asDriver()
-//    }
-//}
+class MockHomeViewModelOutput: HomeViewModelOutput {
+    var selectedCategory: Driver<String>
+    
+    init() {
+        self.selectedCategory = BehaviorRelay<String>(value: "computer").asDriver()
+    }
+}

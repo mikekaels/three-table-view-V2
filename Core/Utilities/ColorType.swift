@@ -11,5 +11,6 @@ public enum ColorType {
     public static let primary = "PrimaryColor"
     public static let secondary = "SecondaryColor"
     public static let background = "InActiveColor"
-    public static let button = "ButtonColor"
+    public static let buttonTitle = "ButtonTitleColor"
+    public static let tokopediaPrimaryColor = "TokopediaPrimaryColor"
 }

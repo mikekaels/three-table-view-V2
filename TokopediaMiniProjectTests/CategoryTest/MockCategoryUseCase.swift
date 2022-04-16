@@ -13,15 +13,41 @@ import RxCocoa
 
 @testable import TokopediaMiniProject
 
-//class MockCategoryDomainUseCase: CategoryViewUseCase {
-//    
-//    func getCategories() -> Observable<[TreeNode]> {
-//        
-//    }
-//    
-//    func getLocalCategories() -> Observable<[TreeNode]> {
-//        
-//    }
-//    
-//
-//}
+class MockPositiveCategoryDomainUseCase: CategoryViewUseCase {
+    
+    private var _categories = BehaviorRelay<[TreeNode]>(value: [])
+    
+    func getCategories() -> Observable<[TreeNode]> {
+        var categories = [TreeNode]()
+        
+        for _ in 1...100 {
+            let node = TreeNode()
+            node.name = ""
+            node.isOpen = false
+            node.index = UUID().uuidString
+            node.parentId = "0"
+            
+            categories.append(node)
+        }
+        _categories.accept(categories)
+        return _categories.asObservable()
+    }
+    
+    func getLocalCategories() -> Observable<[TreeNode]> {
+        return _categories.asObservable()
+    }
+}
+
+class MockNegativeCategoryDomainUseCase: CategoryViewUseCase {
+    
+    private var _categories = BehaviorRelay<[TreeNode]>(value: [])
+    
+    func getCategories() -> Observable<[TreeNode]> {
+        return _categories.asObservable()
+    }
+    
+    func getLocalCategories() -> Observable<[TreeNode]> {
+        return _categories.asObservable()
+    }
+}
+

@@ -30,11 +30,11 @@ class HomeView: ScrollableView {
             v.translatesAutoresizingMaskIntoConstraints = false
         }
     
-    let btnSelect = UIButton()
+    let btnSelect = UIPrimaryButton()
         .configure { v in
             v.setTitle("Select", for: .normal)
             v.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-            v.setTitleColor(.button, for: .normal)
+            v.setTitleColor(.buttonTitle, for: .normal)
             v.translatesAutoresizingMaskIntoConstraints = false
             
             v.widthAnchor.constraint(equalToConstant: 100).isActive = true
@@ -55,8 +55,9 @@ class HomeView: ScrollableView {
             lblSelected.topAnchor.constraint(equalTo: self.lblYouHaveNoSelected.bottomAnchor, constant: 30),
             lblSelected.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
-            btnSelect.topAnchor.constraint(equalTo: self.lblSelected.bottomAnchor, constant: 100),
-            btnSelect.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            btnSelect.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor, constant: -70),
+            btnSelect.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor, constant: 36),
+            btnSelect.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor, constant: -36)
         ])
     }
 }
